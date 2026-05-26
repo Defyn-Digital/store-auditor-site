@@ -7,7 +7,7 @@ const faqItems = [
   {
     question: "Do you use synthetic Lighthouse or field data (CrUX)?",
     answer:
-      "Synthetic Lighthouse runs, intentionally. CrUX field data only updates monthly and only covers Chrome users with sufficient sample size — too slow and too coarse to debug a specific app. Lighthouse gives us deterministic, repeatable measurements that you can re-run after each fix.",
+      "Synthetic Lighthouse runs, intentionally. CrUX field data only updates monthly and only covers Chrome users with sufficient sample size. Too slow and too coarse to debug a specific app. Lighthouse gives us deterministic, repeatable measurements that you can re-run after each fix.",
   },
   {
     question: "Which Lighthouse audits drive recommendations?",
@@ -17,7 +17,7 @@ const faqItems = [
   {
     question: "How do you fingerprint apps?",
     answer:
-      "Three signals, in order: (1) script host — e.g. <code>klaviyo.com</code>, <code>static.judgeme.io</code>; (2) Theme App Extension block name from the merchant's theme settings; (3) script content patterns and global variable names. When all three agree, we attribute the script to that app with high confidence.",
+      "Three signals, in order: (1) script host (e.g. <code>klaviyo.com</code>, <code>static.judgeme.io</code>); (2) Theme App Extension block name from the merchant's theme settings; (3) script content patterns and global variable names. When all three agree, we attribute the script to that app with high confidence.",
   },
   {
     question: "How long does a scan take?",
@@ -27,13 +27,13 @@ const faqItems = [
   {
     question: "What if my store uses a custom-built app?",
     answer:
-      "Custom apps appear in the scan results as 'Custom app' or labeled by their script host. The blocking time and severity calculations are identical — only the attribution label changes.",
+      "Custom apps appear in the scan results as 'Custom app' or labeled by their script host. The blocking time and severity calculations are identical. Only the attribution label changes.",
   },
 ];
 ---
 
 <BaseLayout
-  title="How Store Auditor Works — Lighthouse-Based Shopify Performance Audit"
+  title="How Store Auditor Works: Lighthouse-Based Shopify Performance Audit"
   description="Store Auditor runs real Google Lighthouse 13 scans across your storefront's homepage, product, collection, and cart pages on both mobile and desktop, then maps every blocking script to the specific Shopify app that loaded it."
 >
   <!-- HERO -->
@@ -41,13 +41,15 @@ const faqItems = [
     <div class="container container-narrow">
       <p class="eyebrow">How it works</p>
       <h1 class="headline">
-        Real Lighthouse. Specific apps.
-        <span class="headline-spike">Repeatable scans.</span>
+        How the Shopify performance audit works.
+        <span class="headline-spike">Lighthouse-based.</span>
       </h1>
       <p class="lead">
         Store Auditor isn't a heuristic or a "third-party scripts detected"
         warning. It's a Google Lighthouse 13 scan, run against your live
-        storefront, with per-app attribution layered on top.
+        Shopify storefront, with per-app attribution layered on top.
+        Built by
+        <a href="https://defyn.com.au" rel="noopener" style="color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px;">Defyn Digital</a>.
       </p>
     </div>
   </section>
@@ -68,7 +70,7 @@ const faqItems = [
               configuration via read-only API calls. We assemble a
               representative page set: your homepage, a top product page,
               a top collection page, and the cart. Each is scanned on both
-              mobile and desktop — 8 audits in total for a typical store.
+              mobile and desktop, 8 audits in total for a typical store.
             </p>
             <div class="method-meta">
               <span>Scopes: <code>read_themes</code>, <code>read_products</code></span>
@@ -83,7 +85,7 @@ const faqItems = [
             <h3 class="method-title">Run Google Lighthouse 13</h3>
             <p>
               Each page is scanned via Browserless using the official
-              Lighthouse CLI — the exact same engine that powers PageSpeed
+              Lighthouse CLI, the exact same engine that powers PageSpeed
               Insights and Chrome DevTools. We extract performance score,
               LCP, TBT, render-blocking resources, third-party impact, and
               the full main-thread breakdown.
@@ -105,7 +107,7 @@ const faqItems = [
               blocking script against a fingerprint database of Shopify
               apps: script host, Theme App Extension block name, global
               variable names, content patterns. Each script gets attributed
-              to a specific app — Klaviyo, Judge.me, GA4, Tidio, whatever's
+              to a specific app: Klaviyo, Judge.me, GA4, Tidio, whatever's
               actually on your store. Anything unmatched is labeled
               <em>unattributed third-party</em> so it's never silently
               mis-categorized.
@@ -124,7 +126,7 @@ const faqItems = [
             <p>
               Each app's combined blocking time is ranked. We tag each
               entry critical / high / medium / low based on absolute and
-              relative impact, then generate a specific recommendation —
+              relative impact, then generate a specific recommendation:
               <code>defer this script</code>, <code>move to web pixels</code>,
               <code>lazy-load below the fold</code>, <code>replace with the
               native Shopify channel</code>, etc.
@@ -149,7 +151,7 @@ const faqItems = [
           <p class="anti-x">×</p>
           <h3>No write access</h3>
           <p>
-            We never change your theme, products, or apps. We can't —
+            We never change your theme, products, or apps. We can't:
             our scopes are read-only.
           </p>
         </div>
@@ -174,7 +176,7 @@ const faqItems = [
           <h3>No PII collected</h3>
           <p>
             We do not read customer data. Aggregate sessions / AOV /
-            conversion rate only, used for audit context — and the
+            conversion rate only, used for audit context, and the
             merchant can disable that.
           </p>
         </div>

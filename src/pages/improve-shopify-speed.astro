@@ -36,18 +36,18 @@ const faqItems = [
   {
     question: "What's a good Lighthouse score for Shopify?",
     answer:
-      "On mobile, 50+ is the realistic median for live commerce stores. 70+ is excellent. The default Dawn theme on an empty store scores ~95 on mobile — but real stores add apps, custom code, and product imagery. Don't chase a perfect 100; chase removing the bottom 20% of blocking time.",
+      "On mobile, 50+ is the realistic median for live commerce stores. 70+ is excellent. The default Dawn theme on an empty store scores ~95 on mobile, but real stores add apps, custom code, and product imagery. Don't chase a perfect 100; chase removing the bottom 20% of blocking time.",
   },
   {
     question: "Does Shopify rank you in search based on site speed?",
     answer:
-      "Yes indirectly, via Google. Core Web Vitals (LCP, INP, CLS) are confirmed Google ranking signals. Shopify's organic search visibility — and increasingly, AI search visibility — depends on those metrics. Speed isn't optional for SEO any more.",
+      "Yes indirectly, via Google. Core Web Vitals (LCP, INP, CLS) are confirmed Google ranking signals. Shopify's organic search visibility, and increasingly AI search visibility, depends on those metrics. Speed isn't optional for SEO any more.",
   },
 ];
 ---
 
 <BaseLayout
-  title="How to Improve Shopify Speed — The 2026 Guide"
+  title="How to Improve Shopify Speed: The 2026 Guide"
   description="A practical, app-aware guide to speeding up your Shopify store. Find the actual bottlenecks (it's usually 3-4 apps), apply the 7 fixes that matter, skip the marketing-blog noise."
   structuredData={articleSchema}
 >
@@ -56,17 +56,20 @@ const faqItems = [
       <div class="container container-prose">
         <p class="eyebrow">Guide</p>
         <h1 class="headline">
-          How to improve Shopify speed —
+          How to improve Shopify speed
           <span class="headline-spike">without guessing.</span>
         </h1>
         <p class="lead">
           The honest version: most Shopify performance advice on the
           internet is generic, vague, or wrong. This is the short, specific
           version that actually moves the metrics. Written by the team
-          behind Store Auditor.
+          behind Store Auditor at
+          <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>,
+          a Sydney-based Shopify development agency.
         </p>
         <p class="article-meta muted">
-          Updated May 2026 · 8 min read
+          Updated May 2026 · 8 min read · By
+          <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>
         </p>
       </div>
     </header>
@@ -76,7 +79,7 @@ const faqItems = [
       <aside class="tldr">
         <p class="tldr-label">TL;DR</p>
         <ol class="tldr-list">
-          <li>Run a real Lighthouse audit on mobile — desktop will lie to you.</li>
+          <li>Run a real Lighthouse audit on mobile. Desktop will lie to you.</li>
           <li>Find which installed apps load blocking scripts, by name.</li>
           <li>Defer or remove the top 3 offenders before touching anything else.</li>
           <li>Move analytics scripts (GA4, Meta Pixel) to Shopify Web Pixels.</li>
@@ -116,7 +119,7 @@ const faqItems = [
         <li>Repeats the same scan across multiple pages</li>
       </ul>
       <p>
-        That's what Store Auditor does — and you can run the first audit
+        That's what Store Auditor does, and you can run the first audit
         on the Free plan. But you can also do it manually: open Chrome
         DevTools → Performance tab → record a load of your homepage on
         mobile emulation, then open the Network tab and sort by Initiator
@@ -130,7 +133,7 @@ const faqItems = [
           <p class="fix-num">01</p>
           <h3>Defer all analytics scripts to <code>web-pixels</code></h3>
           <p>
-            GA4, Meta Pixel, TikTok Pixel, Pinterest Tag — all of these
+            GA4, Meta Pixel, TikTok Pixel, Pinterest Tag. All of these
             should run via Shopify Web Pixels, not as inline script tags
             in your theme. Shopify Web Pixels run in a sandboxed worker,
             off the main thread. The conversion tracking is identical;
@@ -161,7 +164,7 @@ const faqItems = [
           <p class="fix-num">03</p>
           <h3>Defer chat widgets to user intent</h3>
           <p>
-            Tidio, Intercom, Gorgias, Drift — none of these need to load
+            Tidio, Intercom, Gorgias, Drift. None of these need to load
             on page-ready. Trigger them on first user interaction (scroll,
             click, mouseenter), or after a 3-second idle. Customers who
             need chat will still get it; everyone else gets a fast page.
@@ -213,7 +216,7 @@ const faqItems = [
           </p>
           <p class="fix-impact">
             <span class="muted">Typical impact:</span>
-            <strong>Varies — often the biggest single win</strong>
+            <strong>Varies. Often the biggest single win</strong>
           </p>
         </article>
 
@@ -227,7 +230,7 @@ const faqItems = [
           </p>
           <p class="fix-impact">
             <span class="muted">Typical impact:</span>
-            <strong>Compounding — protects every fix above</strong>
+            <strong>Compounding. Protects every fix above</strong>
           </p>
         </article>
       </div>
@@ -263,6 +266,41 @@ const faqItems = [
           Install Store Auditor free
         </a>
       </div>
+
+      <h2 id="related">Related reading</h2>
+      <ul>
+        <li>
+          <a href="/find-slow-shopify-apps">
+            How to find which Shopify apps are slowing your store
+          </a>
+          (manual vs. automated workflows)
+        </li>
+        <li>
+          <a href="/how-it-works">
+            How Store Auditor's Lighthouse-based audit works
+          </a>
+        </li>
+        <li>
+          <a href="https://defyn.com.au" rel="noopener">
+            Shopify development services at Defyn Digital
+          </a>
+        </li>
+      </ul>
+
+      <aside class="author-card">
+        <p class="author-label">About the author</p>
+        <p>
+          <strong>Defyn Digital</strong> is a Sydney-based Shopify
+          development agency. We build, audit, and accelerate Shopify
+          storefronts. This guide is distilled from the per-app profiling
+          work we do for agency clients before launching Store Auditor.
+        </p>
+        <p>
+          <a href="https://defyn.com.au" rel="noopener">defyn.com.au</a>
+          ·
+          <a href="/how-it-works">See Store Auditor's methodology</a>
+        </p>
+      </aside>
     </div>
   </article>
 
@@ -411,6 +449,36 @@ const faqItems = [
     color: var(--accent);
     font-family: var(--font-mono);
     font-size: 0.95em;
+  }
+
+  /* AUTHOR CARD */
+  .author-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--success);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin-top: var(--space-48);
+  }
+
+  .author-label {
+    font-size: var(--fs-12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--success);
+    font-weight: 700;
+    margin-bottom: var(--space-16);
+  }
+
+  .author-card p {
+    font-size: var(--fs-16);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-16);
+  }
+
+  .author-card p:last-child {
+    margin-bottom: 0;
   }
 
   /* INLINE CTA */

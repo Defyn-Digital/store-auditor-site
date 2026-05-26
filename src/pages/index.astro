@@ -15,7 +15,7 @@ const structuredData = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Shopify",
   description:
-    "Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store — by name, not 'third-party script #4'.",
+    "Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store by name, not 'third-party script #4'.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -33,7 +33,7 @@ const faqItems = [
   {
     question: "How does Store Auditor know which app a script belongs to?",
     answer:
-      "We match each blocking script against a fingerprint database of Shopify apps — their script hosts, CDN paths, global variable names, and Theme App Extension blocks. When a script can be attributed to a named installed app, we attribute it. Anything ambiguous is grouped as 'unattributed third-party' so it's never silently lumped into the wrong vendor.",
+      "We match each blocking script against a fingerprint database of Shopify apps based on their script hosts, CDN paths, global variable names, and Theme App Extension blocks. When a script can be attributed to a named installed app, we attribute it. Anything ambiguous is grouped as 'unattributed third-party' so it's never silently lumped into the wrong vendor.",
   },
   {
     question: "Is the scan safe to run on a live store?",
@@ -58,14 +58,14 @@ const faqItems = [
   {
     question: "Is there a free trial?",
     answer:
-      "Yes — Pro and Plus both include a 14-day free trial, no credit card required to start. The Free plan is also genuinely free forever for stores that only need a monthly audit.",
+      "Yes. Pro and Plus both include a 14-day free trial, no credit card required to start. The Free plan is also genuinely free forever for stores that only need a monthly audit.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Store Auditor — See Which Shopify Apps Are Slowing Your Store"
-  description="Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store — by name. Lighthouse-grade audits across mobile + desktop. Built for Shopify."
+  title="Store Auditor: See Which Shopify Apps Are Slowing Your Store"
+  description="Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store by name. Lighthouse-grade audits across mobile and desktop. Built for Shopify."
   structuredData={structuredData}
 >
   <!-- HERO -->
@@ -74,8 +74,8 @@ const faqItems = [
       <div class="hero-text">
         <p class="eyebrow">Built for Shopify</p>
         <h1 class="headline">
-          See which Shopify apps slow your store —
-          <span class="headline-spike">by name.</span>
+          See which Shopify apps slow your store.
+          <span class="headline-spike">By name.</span>
         </h1>
         <p class="lead hero-lead">
           Every installed app on your storefront, ranked by blocking time and
@@ -140,12 +140,12 @@ const faqItems = [
         Marketing apps add tracking pixels. Review apps add widgets. Chat apps
         add scripts. Page builders add layout JS. Individually, each one
         feels small. Stacked together, they bury your storefront under
-        seconds of blocking time on mobile — exactly when shoppers are most
+        seconds of blocking time on mobile, exactly when shoppers are most
         likely to bounce.
       </p>
       <p class="lead problem-second">
         Worse: the existing audit tools tell you "third-party scripts are
-        slow." Useful — but you still don't know which of your 12 installed
+        slow." Useful, but you still don't know which of your 12 installed
         apps is the actual offender. Store Auditor closes that gap.
       </p>
     </div>
@@ -212,14 +212,14 @@ const faqItems = [
           <p class="eyebrow">Why named attribution matters</p>
           <h2 class="headline-md">
             "Reduce third-party scripts" isn't a fix.
-            Defer Klaviyo, lazy-load Judge.me, and move GA4 to Web Pixels —
+            Defer Klaviyo, lazy-load Judge.me, and move GA4 to Web Pixels.
             <span class="headline-spike">that's a fix.</span>
           </h2>
           <p class="lead diff-lead">
             Existing audits stop at the symptom: too many third-party
             scripts. Store Auditor finishes the job by attaching each script
             to the specific app that loaded it, so the fix list is something
-            a merchant can actually action — not another report to forward
+            a merchant can actually action, not another report to forward
             to a developer who'll forward it back.
           </p>
 
@@ -287,6 +287,14 @@ const faqItems = [
         Hard facts about how Store Auditor works.
       </h2>
       <TrustStrip />
+
+      <p class="trust-byline muted">
+        Built by
+        <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>,
+        a Sydney-based Shopify development agency. We built Store Auditor
+        because we got tired of running per-app performance audits by hand
+        for our agency clients.
+      </p>
     </div>
   </section>
 
@@ -617,6 +625,24 @@ const faqItems = [
   .trust-heading {
     margin-block: var(--space-12) var(--space-48);
     max-width: 32ch;
+  }
+
+  .trust-byline {
+    font-size: var(--fs-14);
+    margin-top: var(--space-32);
+    max-width: 64ch;
+    line-height: 1.5;
+  }
+
+  .trust-byline a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+
+  .trust-byline a:hover {
+    text-decoration-color: var(--accent);
   }
 
   /* PRICING TEASE */

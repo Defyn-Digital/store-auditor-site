@@ -26,7 +26,7 @@ const faqItems = [
   {
     question: "Can I tell which app is slow without Chrome DevTools?",
     answer:
-      "Not reliably. Without DevTools or an automated tool like Store Auditor, you're guessing based on which apps you remember installing. The manual workflow takes practice — it's worth learning if you only do it once or twice, but past that, an automated audit is faster every time.",
+      "Not reliably. Without DevTools or an automated tool like Store Auditor, you're guessing based on which apps you remember installing. The manual workflow takes practice. It's worth learning if you only do it once or twice, but past that, an automated audit is faster every time.",
   },
   {
     question: "Why doesn't Shopify show me which apps are slow?",
@@ -62,9 +62,12 @@ const faqItems = [
         <p class="lead">
           Two methods. The manual one takes 45 minutes and Chrome DevTools.
           The automated one takes 90 seconds and Store Auditor. Both are
-          documented below — pick whichever fits.
+          documented below. Pick whichever fits.
         </p>
-        <p class="article-meta muted">Updated May 2026 · 7 min read</p>
+        <p class="article-meta muted">
+          Updated May 2026 · 7 min read · By
+          <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>
+        </p>
       </div>
     </header>
 
@@ -73,7 +76,7 @@ const faqItems = [
       <p>
         Shopify's admin shows you a list of installed apps. Lighthouse
         shows you a performance score. Neither tells you which app
-        contributed which milliseconds of blocking time — and that's the
+        contributed which milliseconds of blocking time, and that's the
         information you actually need.
       </p>
       <p>
@@ -121,7 +124,7 @@ const faqItems = [
         Open DevTools (<code>Cmd+Opt+I</code> on Mac, <code>Ctrl+Shift+I</code>
         on Windows). Click the device toolbar icon (top-left) to switch to
         mobile emulation. Pick "Moto G Power" or any 4× CPU throttling
-        preset — desktop will lie to you about how bad mobile is.
+        preset. Desktop will lie to you about how bad mobile is.
       </p>
 
       <h3>2. Record a Performance trace</h3>
@@ -135,13 +138,13 @@ const faqItems = [
       <p>
         Look at the Main row in the timeline. Long horizontal bars (>50ms)
         are tasks blocking your storefront from being interactive. Click
-        each long bar to see what called it — typically a third-party script.
+        each long bar to see what called it: typically a third-party script.
       </p>
 
       <h3>4. Identify the script host</h3>
       <p>
         Switch to the Network tab. Filter to JavaScript only. Sort by
-        Initiator. Each blocking script will have a host — like
+        Initiator. Each blocking script will have a host like
         <code>klaviyo.com</code>, <code>static.judgeme.io</code>,
         <code>tagmanager.google.com</code>. Note the hosts.
       </p>
@@ -207,7 +210,7 @@ const faqItems = [
         Loox) that can be lazy-loaded below the fold. Medium-severity
         apps are usually chat widgets (Tidio, Gorgias, Intercom) that
         should trigger on user intent rather than page load. Low-severity
-        is usually fine to ignore — fix the top before the bottom.
+        is usually fine to ignore: fix the top before the bottom.
       </p>
 
       <div class="article-cta">
@@ -216,6 +219,22 @@ const faqItems = [
           Install Store Auditor free
         </a>
       </div>
+
+      <aside class="author-card">
+        <p class="author-label">About the author</p>
+        <p>
+          <strong>Defyn Digital</strong> is a Sydney-based Shopify
+          development agency. We build, audit, and accelerate Shopify
+          storefronts for merchants who need real performance gains, not
+          generic advice. Store Auditor came out of the same per-app
+          profiling work we do for our agency clients.
+        </p>
+        <p>
+          <a href="https://defyn.com.au" rel="noopener">defyn.com.au</a>
+          ·
+          <a href="/how-it-works">See Store Auditor's methodology</a>
+        </p>
+      </aside>
     </div>
   </article>
 
@@ -387,6 +406,36 @@ const faqItems = [
   .mc-link:hover {
     border-color: var(--accent);
     color: var(--accent);
+  }
+
+  /* AUTHOR CARD */
+  .author-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--success);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin-top: var(--space-48);
+  }
+
+  .author-label {
+    font-size: var(--fs-12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--success);
+    font-weight: 700;
+    margin-bottom: var(--space-16);
+  }
+
+  .author-card p {
+    font-size: var(--fs-16);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-16);
+  }
+
+  .author-card p:last-child {
+    margin-bottom: 0;
   }
 
   /* INLINE CTA */
