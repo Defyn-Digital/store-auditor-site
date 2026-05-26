@@ -1,0 +1,417 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import CtaBlock from "~/components/CtaBlock.astro";
+import FAQ from "~/components/FAQ.astro";
+
+const APP_STORE_URL = "https://apps.shopify.com/store-auditor";
+
+const plans = [
+  {
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    description: "Try it on your homepage. Real Lighthouse, real attribution.",
+    cta: "Install free",
+    ctaUrl: APP_STORE_URL,
+    highlight: false,
+    features: [
+      "1 audit per month",
+      "Homepage only",
+      "Top 3 issues shown",
+      "Per-app attribution",
+      "Mobile-only scans",
+    ],
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    period: "/month",
+    badge: "14-day free trial",
+    description:
+      "For working merchants who want every audit they need, on every page.",
+    cta: "Start Pro trial",
+    ctaUrl: APP_STORE_URL,
+    highlight: true,
+    features: [
+      "Unlimited audits",
+      "Every page: home, product, collection, cart",
+      "Mobile + desktop scans",
+      "Full ranked recommendation list",
+      "365-day scan history",
+      "Trend comparison between scans",
+    ],
+  },
+  {
+    name: "Plus",
+    price: "$99",
+    period: "/month",
+    badge: "14-day free trial",
+    description: "For agencies and Shopify Plus merchants running multiple stores.",
+    cta: "Start Plus trial",
+    ctaUrl: APP_STORE_URL,
+    highlight: false,
+    features: [
+      "Everything in Pro",
+      "Multi-store dashboard",
+      "API access for export + automation",
+      "Scheduled scans (weekly / monthly)",
+      "Priority email support",
+      "White-label PDF reports",
+    ],
+  },
+];
+
+const compareRows = [
+  { label: "Audits per month", values: ["1", "Unlimited", "Unlimited"] },
+  { label: "Pages scanned", values: ["Homepage", "All pages", "All pages"] },
+  { label: "Mobile + desktop", values: ["Mobile only", "Both", "Both"] },
+  { label: "Recommendation depth", values: ["Top 3", "Full list", "Full list"] },
+  { label: "Scan history", values: ["30 days", "365 days", "365 days"] },
+  { label: "Multi-store", values: ["—", "—", "Up to 10"] },
+  { label: "Scheduled scans", values: ["—", "—", "Weekly / monthly"] },
+  { label: "API access", values: ["—", "—", "Full REST"] },
+  { label: "Priority support", values: ["—", "—", "Yes"] },
+  { label: "Trial period", values: ["—", "14 days", "14 days"] },
+];
+
+const faqItems = [
+  {
+    question: "Can I switch plans later?",
+    answer:
+      "Yes — change plan from the in-app billing page any time. Upgrades take effect immediately; downgrades take effect at the end of your billing cycle. No proration trickery.",
+  },
+  {
+    question: "Is billing through Shopify?",
+    answer:
+      "Yes. We use Shopify's Billing API, so the charge appears on your Shopify invoice next to your other apps. No separate credit card to manage. You can cancel from within Shopify admin at any time.",
+  },
+  {
+    question: "What happens to my data if I cancel?",
+    answer:
+      "Your scan history stays available on the Free plan (30-day retention). If you uninstall completely, all data is hard-deleted 48 hours after Shopify fires the <code>shop/redact</code> webhook.",
+  },
+  {
+    question: "Do you offer annual pricing?",
+    answer:
+      "Not yet. Monthly only while we're in the first 12 months of the App Store. Once we have a year of pricing telemetry we'll add annual plans with a discount.",
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing — Store Auditor for Shopify"
+  description="Free plan available. Pro $29/month for unlimited audits across every page. Plus $99/month for multi-store dashboards, API access, and priority support. 14-day free trial on paid plans."
+>
+  <section class="pricing-hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Pricing</p>
+      <h1 class="headline">
+        Start free. Upgrade
+        <span class="headline-spike">when it pays off.</span>
+      </h1>
+      <p class="lead">
+        Every plan runs the same Lighthouse engine. The paid plans just
+        scan more pages, more often, and give you the full ranked
+        recommendation list instead of the top 3.
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing-plans">
+    <div class="container">
+      <div class="plans-grid">
+        {
+          plans.map((plan) => (
+            <article
+              class:list={["plan-card", plan.highlight && "plan-card-featured"]}
+            >
+              {plan.highlight && <p class="plan-badge">Most popular</p>}
+
+              <header class="plan-head">
+                <h2 class="plan-name">{plan.name}</h2>
+                <p class="plan-price">
+                  <span class="plan-amount">{plan.price}</span>
+                  <span class="plan-period">{plan.period}</span>
+                </p>
+                {plan.badge && <p class="plan-trial">{plan.badge}</p>}
+                <p class="plan-description">{plan.description}</p>
+              </header>
+
+              <ul class="plan-features">
+                {plan.features.map((feature) => (
+                  <li>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      class="plan-check"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={plan.ctaUrl}
+                class:list={[
+                  "btn",
+                  plan.highlight ? "btn-primary" : "btn-secondary",
+                  "plan-cta",
+                ]}
+              >
+                {plan.cta}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="container">
+      <p class="eyebrow">Plan comparison</p>
+      <h2 class="headline-md compare-heading">What you get on each plan.</h2>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Free</th>
+              <th class="compare-col-feat">Pro</th>
+              <th>Plus</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              compareRows.map((row) => (
+                <tr>
+                  <th scope="row">{row.label}</th>
+                  {row.values.map((value, i) => (
+                    <td class:list={[i === 1 && "compare-col-feat"]}>
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+
+  <CtaBlock
+    eyebrow="Pick a plan"
+    heading="Free until you need more than one scan a month."
+    description="The Free plan is real. The paid plans exist because some merchants need them."
+    secondaryLabel="See how it works"
+    secondaryUrl="/how-it-works"
+  />
+</BaseLayout>
+
+<style>
+  .pricing-hero {
+    padding-block: clamp(4rem, 9vw, 8rem) clamp(2rem, 4vw, 4rem);
+  }
+
+  .pricing-hero .headline {
+    margin-block: var(--space-24) var(--space-24);
+  }
+
+  /* PLANS */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24);
+    align-items: stretch;
+  }
+
+  .plan-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-xl);
+    padding: var(--space-40);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color var(--dur-base) var(--ease),
+      transform var(--dur-base) var(--ease);
+  }
+
+  .plan-card:hover {
+    border-color: var(--border);
+  }
+
+  .plan-card-featured {
+    border-color: var(--accent);
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(245, 158, 11, 0.08),
+        transparent 60%
+      ),
+      var(--bg-card);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 24px 80px -32px rgba(245, 158, 11, 0.2);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--accent);
+    color: #1f1300;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .plan-name {
+    font-size: var(--fs-14);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-16);
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.375rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .plan-amount {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .plan-period {
+    font-size: var(--fs-16);
+    color: var(--text-tertiary);
+  }
+
+  .plan-trial {
+    font-size: var(--fs-12);
+    color: var(--accent);
+    margin-bottom: var(--space-16);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .plan-description {
+    color: var(--text-secondary);
+    font-size: var(--fs-14);
+    line-height: 1.5;
+    margin-bottom: var(--space-32);
+    min-height: 2.5em;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-bottom: var(--space-32);
+    flex-grow: 1;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: var(--text-secondary);
+    font-size: var(--fs-14);
+    line-height: 1.5;
+  }
+
+  .plan-check {
+    width: 16px;
+    height: 16px;
+    color: var(--success);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .plan-cta {
+    width: 100%;
+  }
+
+  /* COMPARE */
+  .compare-heading {
+    margin-block: var(--space-12) var(--space-32);
+  }
+
+  .compare-table-wrap {
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-14);
+  }
+
+  .compare-table th,
+  .compare-table td {
+    text-align: left;
+    padding: var(--space-16) var(--space-20);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .compare-table th[scope="col"],
+  .compare-table thead th {
+    font-size: var(--fs-12);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .compare-table th[scope="row"] {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .compare-table td {
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-12);
+  }
+
+  .compare-col-feat {
+    background: rgba(245, 158, 11, 0.05);
+    color: var(--accent) !important;
+  }
+
+  .compare-table tr:last-child th,
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  @media (max-width: 920px) {
+    .plans-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

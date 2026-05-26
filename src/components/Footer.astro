@@ -1,0 +1,211 @@
+---
+import PulseLogo from "./PulseLogo.astro";
+
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    heading: "Product",
+    links: [
+      { href: "/how-it-works", label: "How it works" },
+      { href: "/pricing", label: "Pricing" },
+      {
+        href: "https://apps.shopify.com/store-auditor",
+        label: "Shopify App Store",
+      },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { href: "/improve-shopify-speed", label: "Improve Shopify speed" },
+      { href: "/find-slow-shopify-apps", label: "Find slow Shopify apps" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { href: "https://defyn.com.au", label: "Defyn Digital" },
+      { href: "mailto:dan@defyn.com.au", label: "dan@defyn.com.au" },
+      {
+        href: "https://store-auditor-defyn-digital.vercel.app/privacy",
+        label: "Privacy policy",
+      },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="brand" aria-label="Store Auditor home">
+        <PulseLogo width={28} height={28} className="brand-mark" />
+        <span class="brand-wordmark">Store Auditor</span>
+      </a>
+      <p class="brand-tagline">
+        See which Shopify apps slow your store — by name.
+      </p>
+      <p class="brand-meta muted">
+        Built in Sydney by{" "}
+        <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>.
+      </p>
+    </div>
+
+    <div class="footer-grid">
+      {
+        columns.map((col) => (
+          <div class="footer-col">
+            <p class="footer-heading">{col.heading}</p>
+            <ul class="footer-list">
+              {col.links.map((link) => (
+                <li>
+                  <a href={link.href} rel="noopener">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span class="muted">© {year} Defyn Digital. Store Auditor.</span>
+    <span class="muted footer-status">
+      <span class="status-dot"></span>
+      All systems operational
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border-soft);
+    padding-top: var(--space-80);
+    padding-bottom: var(--space-32);
+    margin-top: var(--space-64);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: var(--space-80);
+    padding-bottom: var(--space-64);
+  }
+
+  .footer-brand {
+    max-width: 28ch;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-16);
+  }
+
+  .brand-mark {
+    border-radius: 6px;
+  }
+
+  .brand-tagline {
+    font-size: var(--fs-16);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-16);
+    line-height: 1.5;
+  }
+
+  .brand-meta {
+    font-size: var(--fs-14);
+  }
+
+  .brand-meta a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--dur-fast) var(--ease);
+  }
+
+  .brand-meta a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-32);
+  }
+
+  .footer-heading {
+    font-size: var(--fs-12);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-16);
+  }
+
+  .footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-list a {
+    font-size: var(--fs-14);
+    color: var(--text-secondary);
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .footer-list a:hover {
+    color: var(--text);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-32);
+    border-top: 1px solid var(--border-soft);
+    font-size: var(--fs-14);
+  }
+
+  .footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+  }
+
+  @media (max-width: 880px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-48);
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-12);
+      align-items: flex-start;
+    }
+  }
+</style>

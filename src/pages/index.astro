@@ -1,0 +1,718 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Waveform from "~/components/Waveform.astro";
+import AppList from "~/components/AppList.astro";
+import TrustStrip from "~/components/TrustStrip.astro";
+import FAQ from "~/components/FAQ.astro";
+import CtaBlock from "~/components/CtaBlock.astro";
+
+const APP_STORE_URL = "https://apps.shopify.com/store-auditor";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Store Auditor",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Shopify",
+  description:
+    "Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store — by name, not 'third-party script #4'.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free plan available; paid plans from $29/month.",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Defyn Digital",
+    url: "https://defyn.com.au",
+  },
+};
+
+const faqItems = [
+  {
+    question: "How does Store Auditor know which app a script belongs to?",
+    answer:
+      "We match each blocking script against a fingerprint database of Shopify apps — their script hosts, CDN paths, global variable names, and Theme App Extension blocks. When a script can be attributed to a named installed app, we attribute it. Anything ambiguous is grouped as 'unattributed third-party' so it's never silently lumped into the wrong vendor.",
+  },
+  {
+    question: "Is the scan safe to run on a live store?",
+    answer:
+      "Yes. Store Auditor uses Shopify's read-only OAuth scopes (<code>read_themes</code>, <code>read_script_tags</code>, <code>read_products</code>, <code>read_analytics</code>, <code>read_reports</code>) and runs Lighthouse against your public storefront the same way Google's PageSpeed Insights does. We never write to your theme, products, or orders.",
+  },
+  {
+    question: "How often do scans run?",
+    answer:
+      "On the Free plan you can run one full audit per month. Pro runs unlimited on-demand scans across every storefront page (home, product, collection, cart) on both mobile and desktop. Plus adds scheduled scans, multi-store dashboards, and API access.",
+  },
+  {
+    question: "Do I get specific fixes, or just a problem list?",
+    answer:
+      "Specific fixes. Each recommendation names the exact app, the proposed change (defer, lazy-load, move to web pixels, replace, etc.), the blocking time it removes, and the merchant-visible impact. You can hand the list to a developer or work it yourself.",
+  },
+  {
+    question: "What happens to my data if I uninstall?",
+    answer:
+      "Shopify fires the <code>shop/redact</code> webhook 48 hours after uninstall. We honor it: all scan history and shop metadata is hard-deleted from our database. You can also request immediate deletion at any time by emailing dan@defyn.com.au.",
+  },
+  {
+    question: "Is there a free trial?",
+    answer:
+      "Yes — Pro and Plus both include a 14-day free trial, no credit card required to start. The Free plan is also genuinely free forever for stores that only need a monthly audit.",
+  },
+];
+---
+
+<BaseLayout
+  title="Store Auditor — See Which Shopify Apps Are Slowing Your Store"
+  description="Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store — by name. Lighthouse-grade audits across mobile + desktop. Built for Shopify."
+  structuredData={structuredData}
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Built for Shopify</p>
+        <h1 class="headline">
+          See which Shopify apps slow your store —
+          <span class="headline-spike">by name.</span>
+        </h1>
+        <p class="lead hero-lead">
+          Every installed app on your storefront, ranked by blocking time and
+          severity. Real Lighthouse scans. Specific fixes. No guessing which
+          <em>third-party script #4</em> is the actual problem.
+        </p>
+        <div class="hero-actions">
+          <a href={APP_STORE_URL} class="btn btn-primary">
+            Install on Shopify
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a href="/how-it-works" class="btn btn-secondary">See how it works</a>
+        </div>
+
+        <ul class="hero-bullets" role="list">
+          <li>
+            <span class="bullet-dot bullet-success"></span>
+            Free plan available
+          </li>
+          <li>
+            <span class="bullet-dot bullet-success"></span>
+            14-day Pro trial
+          </li>
+          <li>
+            <span class="bullet-dot bullet-success"></span>
+            Install in 30 seconds
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <AppList />
+      </div>
+    </div>
+
+    <div class="hero-waveform-bg" aria-hidden="true">
+      <Waveform />
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container container-narrow">
+      <p class="eyebrow">The problem</p>
+      <h2 class="headline-md">
+        Every Shopify app you install drags down a metric you can't see.
+      </h2>
+      <p class="lead">
+        Marketing apps add tracking pixels. Review apps add widgets. Chat apps
+        add scripts. Page builders add layout JS. Individually, each one
+        feels small. Stacked together, they bury your storefront under
+        seconds of blocking time on mobile — exactly when shoppers are most
+        likely to bounce.
+      </p>
+      <p class="lead problem-second">
+        Worse: the existing audit tools tell you "third-party scripts are
+        slow." Useful — but you still don't know which of your 12 installed
+        apps is the actual offender. Store Auditor closes that gap.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS · 3 STEP -->
+  <section class="how-it-works-strip">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h2 class="headline-md hiw-heading">Three steps. About 90 seconds.</h2>
+
+      <div class="hiw-steps">
+        <article class="hiw-step">
+          <span class="hiw-num">01</span>
+          <h3 class="hiw-step-title">Install &amp; connect</h3>
+          <p>
+            One-click install from the Shopify App Store. Standard OAuth, no
+            theme edits, no separate account.
+          </p>
+        </article>
+        <article class="hiw-step">
+          <span class="hiw-num">02</span>
+          <h3 class="hiw-step-title">Run a scan</h3>
+          <p>
+            We hit your homepage, product, collection, and cart pages with
+            real Lighthouse on mobile + desktop. Finishes in 60–120 seconds.
+          </p>
+        </article>
+        <article class="hiw-step">
+          <span class="hiw-num">03</span>
+          <h3 class="hiw-step-title">See the named apps</h3>
+          <p>
+            Get the ranked list of apps with blocking time, severity, and a
+            specific fix recommendation for each.
+          </p>
+        </article>
+      </div>
+
+      <a href="/how-it-works" class="hiw-cta">
+        Read the full methodology
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATOR -->
+  <section class="differentiator">
+    <div class="container">
+      <div class="diff-grid">
+        <div class="diff-text">
+          <p class="eyebrow">Why named attribution matters</p>
+          <h2 class="headline-md">
+            "Reduce third-party scripts" isn't a fix.
+            Defer Klaviyo, lazy-load Judge.me, and move GA4 to Web Pixels —
+            <span class="headline-spike">that's a fix.</span>
+          </h2>
+          <p class="lead diff-lead">
+            Existing audits stop at the symptom: too many third-party
+            scripts. Store Auditor finishes the job by attaching each script
+            to the specific app that loaded it, so the fix list is something
+            a merchant can actually action — not another report to forward
+            to a developer who'll forward it back.
+          </p>
+
+          <ul class="diff-bullets">
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"></path></svg>
+              </span>
+              Identifies every installed app's footprint, separately.
+            </li>
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"></path></svg>
+              </span>
+              Detects Theme App Extension blocks <em>and</em> legacy script tags.
+            </li>
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"></path></svg>
+              </span>
+              Mobile + desktop scans across home, product, collection, cart.
+            </li>
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"></path></svg>
+              </span>
+              Recommendations sorted by severity, not by alphabetical order.
+            </li>
+          </ul>
+        </div>
+
+        <aside class="diff-card">
+          <p class="diff-card-label">Sample recommendation</p>
+          <div class="diff-card-sev">
+            <span class="sev-tag sev-critical">CRITICAL</span>
+            <span class="muted">Klaviyo Email Marketing</span>
+          </div>
+          <h3 class="diff-card-title">
+            Defer onsite-tracking script until first user interaction
+          </h3>
+          <p class="diff-card-body">
+            Removes 680ms of main-thread blocking on mobile homepage.
+            Replace inline tag with deferred load via Shopify Web Pixels.
+          </p>
+          <div class="diff-card-meta">
+            <div>
+              <p class="meta-label">Blocking time removed</p>
+              <p class="meta-value">680ms</p>
+            </div>
+            <div>
+              <p class="meta-label">Difficulty</p>
+              <p class="meta-value">Low</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust">
+    <div class="container">
+      <p class="eyebrow">What you're actually buying</p>
+      <h2 class="headline-md trust-heading">
+        Hard facts about how Store Auditor works.
+      </h2>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <!-- PRICING TEASE -->
+  <section class="pricing-tease">
+    <div class="container">
+      <div class="pricing-tease-inner">
+        <div>
+          <p class="eyebrow">Pricing</p>
+          <h2 class="headline-md">Start free. Upgrade when the audit pays for itself.</h2>
+          <p class="lead">
+            Free plan runs one audit a month on your homepage. Pro
+            ($29/mo) unlocks unlimited scans across every page on mobile and
+            desktop. Plus ($99/mo) adds multi-store dashboards and API
+            access.
+          </p>
+          <a href="/pricing" class="btn btn-secondary pricing-tease-btn">
+            Compare plans →
+          </a>
+        </div>
+
+        <div class="pricing-tease-cards">
+          <article class="mini-plan">
+            <p class="plan-name">Free</p>
+            <p class="plan-price">$0</p>
+            <p class="muted">1 scan / month · homepage only</p>
+          </article>
+          <article class="mini-plan mini-plan-featured">
+            <p class="plan-tag">Most popular</p>
+            <p class="plan-name">Pro</p>
+            <p class="plan-price">$29<span class="plan-period">/mo</span></p>
+            <p class="muted">Unlimited scans · every page · 14-day trial</p>
+          </article>
+          <article class="mini-plan">
+            <p class="plan-name">Plus</p>
+            <p class="plan-price">$99<span class="plan-period">/mo</span></p>
+            <p class="muted">Multi-store · API access · priority support</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- CTA -->
+  <CtaBlock
+    eyebrow="Get started"
+    heading="Find the apps slowing your store today."
+    description="One-click install from the Shopify App Store. Free plan runs your first audit immediately."
+    secondaryLabel="See how it works"
+    secondaryUrl="/how-it-works"
+  />
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    overflow: hidden;
+  }
+
+  .hero-waveform-bg {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    right: -10%;
+    height: 320px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-80);
+    align-items: center;
+    z-index: 1;
+  }
+
+  .hero-text .eyebrow {
+    margin-bottom: var(--space-24);
+  }
+
+  .hero-lead {
+    margin-top: var(--space-24);
+    margin-bottom: var(--space-32);
+    max-width: 52ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-32);
+  }
+
+  .hero-bullets {
+    list-style: none;
+    display: flex;
+    gap: var(--space-24);
+    flex-wrap: wrap;
+    font-size: var(--fs-14);
+    color: var(--text-tertiary);
+  }
+
+  .hero-bullets li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+  }
+
+  /* PROBLEM */
+  .problem .lead {
+    margin-top: var(--space-24);
+    color: var(--text-secondary);
+    font-size: clamp(1.125rem, 1.4vw, 1.25rem);
+  }
+
+  .problem-second {
+    margin-top: var(--space-16);
+  }
+
+  /* HOW IT WORKS STRIP */
+  .how-it-works-strip {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.015) 50%, transparent 100%);
+  }
+
+  .hiw-heading {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-48);
+  }
+
+  .hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24);
+  }
+
+  .hiw-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+
+  .hiw-step:hover {
+    border-color: var(--border);
+  }
+
+  .hiw-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-12);
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: var(--space-16);
+  }
+
+  .hiw-step-title {
+    font-size: var(--fs-20);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin-bottom: 0.75rem;
+  }
+
+  .hiw-step p {
+    color: var(--text-secondary);
+    font-size: var(--fs-14);
+    line-height: 1.55;
+  }
+
+  .hiw-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+    margin-top: var(--space-32);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.25rem;
+    transition: border-color var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease);
+  }
+
+  .hiw-cta:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* DIFFERENTIATOR */
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-64);
+    align-items: start;
+  }
+
+  .diff-lead {
+    margin-top: var(--space-24);
+    margin-bottom: var(--space-32);
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+  }
+
+  .diff-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .diff-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-12);
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--success-soft);
+    color: var(--success);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .check svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .diff-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--danger);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+  }
+
+  .diff-card-label {
+    font-size: var(--fs-12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-16);
+  }
+
+  .diff-card-sev {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+  }
+
+  .sev-tag {
+    display: inline-flex;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .sev-critical {
+    background: var(--danger-soft);
+    color: #fca5a5;
+  }
+
+  .diff-card-title {
+    font-size: var(--fs-18);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+    margin-bottom: var(--space-12);
+  }
+
+  .diff-card-body {
+    font-size: var(--fs-14);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-24);
+  }
+
+  .diff-card-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .meta-label {
+    font-size: var(--fs-12);
+    color: var(--text-tertiary);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.08em;
+  }
+
+  .meta-value {
+    font-size: var(--fs-20);
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+
+  /* TRUST */
+  .trust-heading {
+    margin-block: var(--space-12) var(--space-48);
+    max-width: 32ch;
+  }
+
+  /* PRICING TEASE */
+  .pricing-tease-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-80);
+    align-items: center;
+  }
+
+  .pricing-tease-inner .headline-md {
+    margin-block: var(--space-12) var(--space-20);
+  }
+
+  .pricing-tease-btn {
+    margin-top: var(--space-32);
+  }
+
+  .pricing-tease-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-12);
+  }
+
+  .mini-plan {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+    position: relative;
+  }
+
+  .mini-plan-featured {
+    border-color: var(--accent);
+    background:
+      linear-gradient(180deg, rgba(245, 158, 11, 0.06), transparent),
+      var(--bg-card);
+  }
+
+  .plan-tag {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: var(--accent);
+    color: #1f1300;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .plan-name {
+    font-size: var(--fs-14);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-price {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-period {
+    font-size: var(--fs-14);
+    font-weight: 500;
+    color: var(--text-tertiary);
+  }
+
+  .mini-plan .muted {
+    font-size: var(--fs-12);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-inner,
+    .diff-grid,
+    .pricing-tease-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-48);
+    }
+    .hiw-steps {
+      grid-template-columns: 1fr;
+    }
+    .pricing-tease-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-tease-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

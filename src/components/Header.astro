@@ -1,0 +1,138 @@
+---
+import PulseLogo from "./PulseLogo.astro";
+
+// CTA URL — swap to the App Store listing URL once Shopify approves.
+// Until then, /#cta scrolls to the in-page CTA which has waiting-list copy.
+const APP_STORE_URL = "https://apps.shopify.com/store-auditor";
+
+const nav = [
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/improve-shopify-speed", label: "Shopify speed" },
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Store Auditor home">
+      <PulseLogo width={28} height={28} className="brand-mark" />
+      <span class="brand-wordmark">Store Auditor</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "nav-link",
+              pathname === item.href && "nav-link-active",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header-cta">
+      <a href={APP_STORE_URL} class="btn btn-primary btn-sm">
+        Install on Shopify
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M7 17L17 7M9 7h8v8"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 18, 32, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-32);
+    min-height: 64px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    flex-shrink: 0;
+  }
+
+  .brand-mark {
+    border-radius: 6px;
+  }
+
+  .brand-wordmark {
+    font-size: var(--fs-16);
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    margin-inline: auto;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-14);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--dur-fast) var(--ease),
+      background-color var(--dur-fast) var(--ease);
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .nav-link-active {
+    color: var(--text);
+  }
+
+  .header-cta {
+    flex-shrink: 0;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 0.875rem;
+    font-size: var(--fs-14);
+  }
+
+  @media (max-width: 760px) {
+    .primary-nav {
+      display: none;
+    }
+  }
+</style>

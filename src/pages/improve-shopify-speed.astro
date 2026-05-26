@@ -1,0 +1,431 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import CtaBlock from "~/components/CtaBlock.astro";
+import FAQ from "~/components/FAQ.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to improve Shopify speed in 2026",
+  description:
+    "A practical, app-aware guide to speeding up your Shopify store. The mobile metric that matters, the apps that drag it down, and the seven fixes worth your time.",
+  author: {
+    "@type": "Organization",
+    name: "Defyn Digital",
+    url: "https://defyn.com.au",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Store Auditor",
+  },
+  datePublished: "2026-05-27",
+  mainEntityOfPage: "https://storeauditor.app/improve-shopify-speed",
+};
+
+const faqItems = [
+  {
+    question: "Will switching themes actually make my Shopify store faster?",
+    answer:
+      "Sometimes, but probably less than you'd hope. Modern Shopify themes (Dawn, Sense, Studio, Refresh, etc.) all score within ~5 points of each other on Lighthouse. The bigger wins almost always come from removing or deferring third-party app scripts, not from the theme itself. Run an audit first; switch themes second.",
+  },
+  {
+    question: "Is the Shopify CDN slow?",
+    answer:
+      "No. Shopify's CDN is excellent globally. If your storefront feels slow, the cause is almost always (a) third-party app scripts blocking the main thread, (b) unoptimized images served from your own files area, or (c) excessive Liquid logic in a custom theme. The CDN itself is rarely the bottleneck.",
+  },
+  {
+    question: "What's a good Lighthouse score for Shopify?",
+    answer:
+      "On mobile, 50+ is the realistic median for live commerce stores. 70+ is excellent. The default Dawn theme on an empty store scores ~95 on mobile — but real stores add apps, custom code, and product imagery. Don't chase a perfect 100; chase removing the bottom 20% of blocking time.",
+  },
+  {
+    question: "Does Shopify rank you in search based on site speed?",
+    answer:
+      "Yes indirectly, via Google. Core Web Vitals (LCP, INP, CLS) are confirmed Google ranking signals. Shopify's organic search visibility — and increasingly, AI search visibility — depends on those metrics. Speed isn't optional for SEO any more.",
+  },
+];
+---
+
+<BaseLayout
+  title="How to Improve Shopify Speed — The 2026 Guide"
+  description="A practical, app-aware guide to speeding up your Shopify store. Find the actual bottlenecks (it's usually 3-4 apps), apply the 7 fixes that matter, skip the marketing-blog noise."
+  structuredData={articleSchema}
+>
+  <article class="prose-article">
+    <header class="article-header">
+      <div class="container container-prose">
+        <p class="eyebrow">Guide</p>
+        <h1 class="headline">
+          How to improve Shopify speed —
+          <span class="headline-spike">without guessing.</span>
+        </h1>
+        <p class="lead">
+          The honest version: most Shopify performance advice on the
+          internet is generic, vague, or wrong. This is the short, specific
+          version that actually moves the metrics. Written by the team
+          behind Store Auditor.
+        </p>
+        <p class="article-meta muted">
+          Updated May 2026 · 8 min read
+        </p>
+      </div>
+    </header>
+
+    <div class="container container-prose article-body">
+      <!-- TL;DR -->
+      <aside class="tldr">
+        <p class="tldr-label">TL;DR</p>
+        <ol class="tldr-list">
+          <li>Run a real Lighthouse audit on mobile — desktop will lie to you.</li>
+          <li>Find which installed apps load blocking scripts, by name.</li>
+          <li>Defer or remove the top 3 offenders before touching anything else.</li>
+          <li>Move analytics scripts (GA4, Meta Pixel) to Shopify Web Pixels.</li>
+          <li>Lazy-load below-the-fold widgets (reviews, chat, social proof).</li>
+          <li>Compress hero imagery to under 200KB.</li>
+          <li>Re-scan. Verify the gain. Don't tune what didn't move.</li>
+        </ol>
+      </aside>
+
+      <h2 id="why">Why most Shopify stores feel slow</h2>
+      <p>
+        It's almost always apps. Specifically, it's the third-party scripts
+        loaded by your installed apps blocking the browser's main thread
+        during initial render. A typical mid-sized Shopify store has 8–15
+        installed apps, each adding somewhere between 50ms and 800ms of
+        blocking time. Stack them and the homepage spends 3–5 seconds
+        before it can respond to a tap.
+      </p>
+      <p>
+        Your theme matters less than the internet wants you to believe.
+        The Shopify CDN matters less still. Image sizes matter, but they
+        matter for LCP, not for the "site feels frozen" experience that
+        actually drives bounces. The single biggest lever is which apps
+        are running, and how they're loaded.
+      </p>
+
+      <h2 id="audit">Step 1 · Run a real audit (not PageSpeed Insights)</h2>
+      <p>
+        PageSpeed Insights gives you a score, but the score moves around
+        ±10 between runs and doesn't tell you which of your apps is
+        responsible. You need an audit that:
+      </p>
+      <ul>
+        <li>Uses real Lighthouse, not heuristics</li>
+        <li>Runs on mobile (where the problem lives)</li>
+        <li>Attributes blocking time to specific named apps</li>
+        <li>Repeats the same scan across multiple pages</li>
+      </ul>
+      <p>
+        That's what Store Auditor does — and you can run the first audit
+        on the Free plan. But you can also do it manually: open Chrome
+        DevTools → Performance tab → record a load of your homepage on
+        mobile emulation, then open the Network tab and sort by Initiator
+        to see which third-party hosts loaded what.
+      </p>
+
+      <h2 id="fixes">Step 2 · The seven fixes worth your time</h2>
+
+      <div class="fix-list">
+        <article class="fix-item">
+          <p class="fix-num">01</p>
+          <h3>Defer all analytics scripts to <code>web-pixels</code></h3>
+          <p>
+            GA4, Meta Pixel, TikTok Pixel, Pinterest Tag — all of these
+            should run via Shopify Web Pixels, not as inline script tags
+            in your theme. Shopify Web Pixels run in a sandboxed worker,
+            off the main thread. The conversion tracking is identical;
+            the blocking time goes to zero.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>250–800ms blocking time removed</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">02</p>
+          <h3>Lazy-load review widgets</h3>
+          <p>
+            Review apps (Judge.me, Yotpo, Loox, Stamped) ship JavaScript
+            and CSS for widgets that almost always appear below the fold.
+            Wrap the widget mount point in an Intersection Observer so the
+            script only runs when the user scrolls near it.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>200–400ms blocking time removed</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">03</p>
+          <h3>Defer chat widgets to user intent</h3>
+          <p>
+            Tidio, Intercom, Gorgias, Drift — none of these need to load
+            on page-ready. Trigger them on first user interaction (scroll,
+            click, mouseenter), or after a 3-second idle. Customers who
+            need chat will still get it; everyone else gets a fast page.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>150–300ms blocking time removed</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">04</p>
+          <h3>Audit Klaviyo's onsite-tracking script</h3>
+          <p>
+            Klaviyo's value is real, but their default tracking script
+            blocks the main thread on every page. Set the script tag to
+            <code>async defer</code>, or migrate to their newer Web Pixels
+            integration. Same data collection; better page speed.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>400–700ms blocking time removed</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">05</p>
+          <h3>Compress hero imagery to ≤ 200KB</h3>
+          <p>
+            One oversized hero image undoes all of the above. Use Shopify's
+            <code>image_url</code> filter with explicit <code>width</code>
+            and <code>format: webp</code> parameters. Aim for under 200KB
+            on the main hero, under 100KB for product card thumbnails.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>0.5–1.5s LCP improvement</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">06</p>
+          <h3>Remove apps you're not using</h3>
+          <p>
+            The fastest fix nobody mentions: uninstall the apps you no
+            longer use. They keep running scripts on your storefront even
+            when you've forgotten about them. Open your Shopify Apps page
+            and prune anything you haven't opened in 60 days.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>Varies — often the biggest single win</strong>
+          </p>
+        </article>
+
+        <article class="fix-item">
+          <p class="fix-num">07</p>
+          <h3>Audit again, verify the gain</h3>
+          <p>
+            Don't tune what didn't move. After each fix, re-run the audit.
+            If a "fix" doesn't measurably reduce blocking time, undo it
+            and move on. The point of measurement is to stop guessing.
+          </p>
+          <p class="fix-impact">
+            <span class="muted">Typical impact:</span>
+            <strong>Compounding — protects every fix above</strong>
+          </p>
+        </article>
+      </div>
+
+      <h2 id="skip">What to skip</h2>
+      <ul>
+        <li>
+          <strong>"Switch themes for speed."</strong> Modern themes are
+          all close. Theme switching costs days and gains seconds.
+        </li>
+        <li>
+          <strong>"Buy a speed-boost app."</strong> Apps that promise to
+          speed up your store usually add their own script to do it.
+          Audit the result before/after.
+        </li>
+        <li>
+          <strong>"Use a third-party CDN."</strong> Shopify's CDN is
+          excellent. You'll lose money switching off it.
+        </li>
+        <li>
+          <strong>"Inline all your CSS."</strong> Modern HTTP/2 makes
+          this a rounding error. Spend the time on the script-deferral
+          list above.
+        </li>
+      </ul>
+
+      <div class="article-cta">
+        <p>
+          Want this audit run for you in 90 seconds, with the apps
+          named?
+        </p>
+        <a href="https://apps.shopify.com/store-auditor" class="btn btn-primary">
+          Install Store Auditor free
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <FAQ items={faqItems} />
+
+  <CtaBlock
+    eyebrow="Run the audit"
+    heading="Stop guessing which apps are slowing your store."
+    description="Free plan runs your first scan in 90 seconds. Pro and Plus include 14-day trials."
+    secondaryLabel="How it works"
+    secondaryUrl="/how-it-works"
+  />
+</BaseLayout>
+
+<style>
+  .prose-article {
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
+  }
+
+  .article-header .headline {
+    margin-block: var(--space-24) var(--space-24);
+  }
+
+  .article-meta {
+    font-size: var(--fs-14);
+    margin-top: var(--space-24);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .article-body {
+    margin-top: var(--space-64);
+    color: var(--text-secondary);
+    font-size: var(--fs-18);
+    line-height: 1.65;
+  }
+
+  .article-body h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-top: var(--space-64);
+    margin-bottom: var(--space-20);
+    scroll-margin-top: 80px;
+  }
+
+  .article-body h3 {
+    font-size: var(--fs-20);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.012em;
+    margin-bottom: var(--space-12);
+  }
+
+  .article-body p {
+    margin-bottom: var(--space-16);
+    max-width: 64ch;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    margin-left: 1.25rem;
+    margin-bottom: var(--space-24);
+  }
+
+  .article-body li {
+    margin-bottom: 0.625rem;
+  }
+
+  .article-body code {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .article-body strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* TL;DR */
+  .tldr {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin-bottom: var(--space-48);
+  }
+
+  .tldr-label {
+    font-size: var(--fs-12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: var(--space-16);
+  }
+
+  .tldr-list {
+    margin: 0 0 0 1.25rem;
+    font-size: var(--fs-16);
+    color: var(--text-secondary);
+  }
+
+  .tldr-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* FIX LIST */
+  .fix-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    margin-block: var(--space-32);
+  }
+
+  .fix-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+  }
+
+  .fix-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-12);
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-12);
+  }
+
+  .fix-impact {
+    font-size: var(--fs-14);
+    color: var(--text-tertiary);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--border-soft);
+    margin-top: var(--space-16);
+    margin-bottom: 0;
+  }
+
+  .fix-impact strong {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+  }
+
+  /* INLINE CTA */
+  .article-cta {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    text-align: center;
+    margin-top: var(--space-48);
+  }
+
+  .article-cta p {
+    margin-bottom: var(--space-16);
+    color: var(--text);
+    font-size: var(--fs-18);
+  }
+</style>

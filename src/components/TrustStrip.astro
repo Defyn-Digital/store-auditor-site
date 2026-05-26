@@ -1,0 +1,101 @@
+---
+/*
+  Trust-signal strip — used in lieu of testimonials while pre-launch.
+  Each block is a hard, specific fact about how the product works.
+*/
+const items = [
+  {
+    label: "Read-only",
+    detail:
+      "We never write to your theme, products, or orders. Inspecting only.",
+  },
+  {
+    label: "Real Lighthouse",
+    detail: "Audits use Google Lighthouse 13 on mobile + desktop.",
+  },
+  {
+    label: "GDPR compliant",
+    detail: "Honor customer data + shop redact webhooks. Auto-delete on uninstall.",
+  },
+  {
+    label: "Sub-2-minute scans",
+    detail: "Most stores complete a full audit in under 120 seconds.",
+  },
+];
+---
+
+<div class="trust-strip">
+  {
+    items.map((item) => (
+      <div class="trust-cell">
+        <p class="trust-label">{item.label}</p>
+        <p class="trust-detail">{item.detail}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.015),
+      transparent
+    );
+  }
+
+  .trust-cell {
+    padding: var(--space-24);
+    border-right: 1px solid var(--border-soft);
+  }
+
+  .trust-cell:last-child {
+    border-right: none;
+  }
+
+  .trust-label {
+    font-size: var(--fs-12);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.625rem;
+  }
+
+  .trust-detail {
+    font-size: var(--fs-14);
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 880px) {
+    .trust-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .trust-cell:nth-child(2) {
+      border-right: none;
+    }
+    .trust-cell:nth-child(1),
+    .trust-cell:nth-child(2) {
+      border-bottom: 1px solid var(--border-soft);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .trust-strip {
+      grid-template-columns: 1fr;
+    }
+    .trust-cell {
+      border-right: none;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .trust-cell:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

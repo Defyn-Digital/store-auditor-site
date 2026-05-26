@@ -1,0 +1,322 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import CtaBlock from "~/components/CtaBlock.astro";
+import FAQ from "~/components/FAQ.astro";
+
+const faqItems = [
+  {
+    question: "Do you use synthetic Lighthouse or field data (CrUX)?",
+    answer:
+      "Synthetic Lighthouse runs, intentionally. CrUX field data only updates monthly and only covers Chrome users with sufficient sample size — too slow and too coarse to debug a specific app. Lighthouse gives us deterministic, repeatable measurements that you can re-run after each fix.",
+  },
+  {
+    question: "Which Lighthouse audits drive recommendations?",
+    answer:
+      "Primarily <code>third-parties-insight</code> (Lighthouse 13's third-party impact analysis), <code>main-thread-tasks</code>, <code>render-blocking-resources</code>, <code>unused-javascript</code>, and <code>bootup-time</code>. We extract per-script entries from those audits and map them to specific apps via our fingerprint database.",
+  },
+  {
+    question: "How do you fingerprint apps?",
+    answer:
+      "Three signals, in order: (1) script host — e.g. <code>klaviyo.com</code>, <code>static.judgeme.io</code>; (2) Theme App Extension block name from the merchant's theme settings; (3) script content patterns and global variable names. When all three agree, we attribute the script to that app with high confidence.",
+  },
+  {
+    question: "How long does a scan take?",
+    answer:
+      "Typically 60–120 seconds for a full audit. We hit 8 page types (homepage, product, collection, cart × mobile, desktop) in parallel via Browserless. Larger themes can push the upper bound, but a scan should always complete in under 5 minutes.",
+  },
+  {
+    question: "What if my store uses a custom-built app?",
+    answer:
+      "Custom apps appear in the scan results as 'Custom app' or labeled by their script host. The blocking time and severity calculations are identical — only the attribution label changes.",
+  },
+];
+---
+
+<BaseLayout
+  title="How Store Auditor Works — Lighthouse-Based Shopify Performance Audit"
+  description="Store Auditor runs real Google Lighthouse 13 scans across your storefront's homepage, product, collection, and cart pages on both mobile and desktop, then maps every blocking script to the specific Shopify app that loaded it."
+>
+  <!-- HERO -->
+  <section class="hiw-hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">How it works</p>
+      <h1 class="headline">
+        Real Lighthouse. Specific apps.
+        <span class="headline-spike">Repeatable scans.</span>
+      </h1>
+      <p class="lead">
+        Store Auditor isn't a heuristic or a "third-party scripts detected"
+        warning. It's a Google Lighthouse 13 scan, run against your live
+        storefront, with per-app attribution layered on top.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE METHOD -->
+  <section class="method">
+    <div class="container">
+      <p class="eyebrow">The method</p>
+      <h2 class="headline-md">Three layers, in order.</h2>
+
+      <ol class="method-list">
+        <li class="method-item">
+          <div class="method-num">01</div>
+          <div class="method-body">
+            <h3 class="method-title">Discover your storefront pages</h3>
+            <p>
+              On install, we read your products, collections, and theme
+              configuration via read-only API calls. We assemble a
+              representative page set: your homepage, a top product page,
+              a top collection page, and the cart. Each is scanned on both
+              mobile and desktop — 8 audits in total for a typical store.
+            </p>
+            <div class="method-meta">
+              <span>Scopes: <code>read_themes</code>, <code>read_products</code></span>
+              <span>Runtime: ~2s</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="method-item">
+          <div class="method-num">02</div>
+          <div class="method-body">
+            <h3 class="method-title">Run Google Lighthouse 13</h3>
+            <p>
+              Each page is scanned via Browserless using the official
+              Lighthouse CLI — the exact same engine that powers PageSpeed
+              Insights and Chrome DevTools. We extract performance score,
+              LCP, TBT, render-blocking resources, third-party impact, and
+              the full main-thread breakdown.
+            </p>
+            <div class="method-meta">
+              <span>Engine: Lighthouse 13.x</span>
+              <span>Strategy: mobile + desktop</span>
+              <span>Runtime: 60–120s</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="method-item">
+          <div class="method-num">03</div>
+          <div class="method-body">
+            <h3 class="method-title">Attribute scripts to named apps</h3>
+            <p>
+              This is the part nobody else does. We cross-reference every
+              blocking script against a fingerprint database of Shopify
+              apps: script host, Theme App Extension block name, global
+              variable names, content patterns. Each script gets attributed
+              to a specific app — Klaviyo, Judge.me, GA4, Tidio, whatever's
+              actually on your store. Anything unmatched is labeled
+              <em>unattributed third-party</em> so it's never silently
+              mis-categorized.
+            </p>
+            <div class="method-meta">
+              <span>Sources: script host, TAE blocks, global vars</span>
+              <span>Coverage: ~94% of installed apps</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="method-item">
+          <div class="method-num">04</div>
+          <div class="method-body">
+            <h3 class="method-title">Rank by severity, suggest fixes</h3>
+            <p>
+              Each app's combined blocking time is ranked. We tag each
+              entry critical / high / medium / low based on absolute and
+              relative impact, then generate a specific recommendation —
+              <code>defer this script</code>, <code>move to web pixels</code>,
+              <code>lazy-load below the fold</code>, <code>replace with the
+              native Shopify channel</code>, etc.
+            </p>
+            <div class="method-meta">
+              <span>Output: ranked, named, actionable</span>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WHAT WE DON'T DO -->
+  <section class="anti-section">
+    <div class="container container-narrow">
+      <p class="eyebrow">What we deliberately don't do</p>
+      <h2 class="headline-md">No magic. No false promises.</h2>
+
+      <div class="anti-grid">
+        <div class="anti-card">
+          <p class="anti-x">×</p>
+          <h3>No write access</h3>
+          <p>
+            We never change your theme, products, or apps. We can't —
+            our scopes are read-only.
+          </p>
+        </div>
+        <div class="anti-card">
+          <p class="anti-x">×</p>
+          <h3>No guaranteed sales lift</h3>
+          <p>
+            We don't claim a fix will lift conversion by X%. We show you
+            the blocking time and severity. The lift depends on your store.
+          </p>
+        </div>
+        <div class="anti-card">
+          <p class="anti-x">×</p>
+          <h3>No automatic changes</h3>
+          <p>
+            Every recommendation is something you (or your developer) apply
+            yourself. We never silently flip a switch on your storefront.
+          </p>
+        </div>
+        <div class="anti-card">
+          <p class="anti-x">×</p>
+          <h3>No PII collected</h3>
+          <p>
+            We do not read customer data. Aggregate sessions / AOV /
+            conversion rate only, used for audit context — and the
+            merchant can disable that.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+
+  <CtaBlock
+    eyebrow="Run your first scan"
+    heading="See the methodology in action on your store."
+    description="Install free, run an audit, and decide. Pro and Plus include 14-day trials."
+    secondaryLabel="See pricing"
+    secondaryUrl="/pricing"
+  />
+</BaseLayout>
+
+<style>
+  .hiw-hero {
+    padding-block: clamp(4rem, 9vw, 8rem) clamp(3rem, 5vw, 5rem);
+  }
+
+  .hiw-hero .headline {
+    margin-block: var(--space-24) var(--space-24);
+  }
+
+  .method .headline-md {
+    margin-block: var(--space-12) var(--space-48);
+  }
+
+  .method-list {
+    list-style: none;
+    counter-reset: method;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+
+  .method-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-32);
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+  }
+
+  .method-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-32);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .method-title {
+    font-size: var(--fs-24);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin-bottom: var(--space-12);
+  }
+
+  .method-body p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
+  .method-body p :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .method-meta {
+    display: flex;
+    gap: var(--space-16);
+    margin-top: var(--space-16);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--border-soft);
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: var(--fs-12);
+    color: var(--text-tertiary);
+  }
+
+  .method-meta :global(code) {
+    color: var(--accent);
+  }
+
+  /* ANTI */
+  .anti-section .headline-md {
+    margin-block: var(--space-12) var(--space-48);
+  }
+
+  .anti-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-16);
+  }
+
+  .anti-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+  }
+
+  .anti-x {
+    font-size: var(--fs-32);
+    color: var(--danger);
+    line-height: 1;
+    margin-bottom: var(--space-12);
+    font-weight: 200;
+  }
+
+  .anti-card h3 {
+    font-size: var(--fs-18);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .anti-card p {
+    color: var(--text-secondary);
+    font-size: var(--fs-14);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .method-item {
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+    }
+
+    .anti-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

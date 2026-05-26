@@ -1,0 +1,64 @@
+---
+/*
+  Inline SVG of the Store Auditor pulse mark — same DNA as the iconpulse.svg
+  used in the Shopify app icon. Lives inline so it ships zero network requests
+  and CSS can style stroke color, etc.
+*/
+interface Props {
+  width?: number;
+  height?: number;
+  className?: string;
+}
+const { width = 32, height = 32, className } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1024 1024"
+  width={width}
+  height={height}
+  class={className}
+  aria-hidden="true"
+>
+  <rect width="1024" height="1024" rx="220" ry="220" fill="#0B1220"></rect>
+  <line
+    x1="160"
+    y1="380"
+    x2="864"
+    y2="380"
+    stroke="#E5E7EB"
+    stroke-opacity="0.08"
+    stroke-width="2"></line>
+  <line
+    x1="160"
+    y1="644"
+    x2="864"
+    y2="644"
+    stroke="#E5E7EB"
+    stroke-opacity="0.08"
+    stroke-width="2"></line>
+  <path
+    d="M 160 530 L 280 530 L 320 510 L 360 540 L 400 520 L 460 540 L 510 520 L 555 540"
+    fill="none"
+    stroke="#E5E7EB"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-opacity="0.55"></path>
+  <path
+    d="M 555 540 L 600 300 L 645 720 L 690 540"
+    fill="none"
+    stroke="#F59E0B"
+    stroke-width="48"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  <path
+    d="M 690 540 L 740 530 L 800 540 L 864 530"
+    fill="none"
+    stroke="#E5E7EB"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-opacity="0.55"></path>
+  <circle cx="200" cy="240" r="22" fill="#10B981"></circle>
+</svg>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://storeauditor.app/sitemap-index.xml

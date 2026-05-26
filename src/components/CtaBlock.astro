@@ -1,0 +1,120 @@
+---
+import Waveform from "./Waveform.astro";
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  description?: string;
+  ctaLabel?: string;
+  ctaUrl?: string;
+  secondaryLabel?: string;
+  secondaryUrl?: string;
+}
+
+const {
+  eyebrow = "Get started",
+  heading,
+  description,
+  ctaLabel = "Install on Shopify",
+  ctaUrl = "https://apps.shopify.com/store-auditor",
+  secondaryLabel,
+  secondaryUrl,
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="cta-waveform" aria-hidden="true">
+        <Waveform />
+      </div>
+
+      <div class="cta-content">
+        <p class="eyebrow">{eyebrow}</p>
+        <h2 class="headline-md cta-heading">{heading}</h2>
+        {description && <p class="lead cta-description">{description}</p>}
+
+        <div class="cta-actions">
+          <a href={ctaUrl} class="btn btn-primary">
+            {ctaLabel}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          {
+            secondaryLabel && secondaryUrl && (
+              <a href={secondaryUrl} class="btn btn-secondary">
+                {secondaryLabel}
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background:
+      radial-gradient(
+        circle at 75% 10%,
+        rgba(245, 158, 11, 0.18),
+        transparent 55%
+      ),
+      linear-gradient(180deg, #0f1a2e 0%, #0b1220 100%);
+    border: 1px solid var(--border-soft);
+    padding: clamp(2.5rem, 6vw, 5rem);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 32px 80px -40px rgba(0, 0, 0, 0.6);
+  }
+
+  .cta-waveform {
+    position: absolute;
+    inset: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 30%,
+      black 70%,
+      transparent 100%
+    );
+  }
+
+  .cta-content {
+    position: relative;
+    max-width: 56ch;
+  }
+
+  .cta-heading {
+    margin-block: var(--space-16) var(--space-20);
+  }
+
+  .cta-description {
+    margin-bottom: var(--space-32);
+    color: var(--text-secondary);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+  }
+</style>
