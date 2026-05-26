@@ -67,7 +67,7 @@ Every `Install on Shopify` button currently points to `https://apps.shopify.com/
 - `src/layouts/BaseLayout.astro` — shared shell with `<SeoMeta>` + Header + Footer
 
 ## What to do once a domain is bought
-1. Buy the domain (suggestion: `storeauditor.app`, or `defyn.com.au/auditor` subpath).
+1. Buy the domain (suggestion: `storeauditor.au`, or `defyn.com.au/auditor` subpath).
 2. Vercel → project → Settings → Domains → add it.
 3. Update `PUBLIC_SITE_URL` env var to match.
 4. Re-deploy.

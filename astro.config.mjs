@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 // Public site URL — replace with the real domain once purchased.
 // Vercel will inject the actual host at build time when deployed.
-const SITE = process.env.PUBLIC_SITE_URL || "https://storeauditor.app";
+const SITE = process.env.PUBLIC_SITE_URL || "https://storeauditor.au";
 
 export default defineConfig({
   site: SITE,
