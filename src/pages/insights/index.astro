@@ -1,0 +1,272 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import CtaBlock from "~/components/CtaBlock.astro";
+
+const allPosts = await getCollection("insights", ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) =>
+    new Date(b.data.publishedDate).getTime() -
+    new Date(a.data.publishedDate).getTime()
+);
+
+const categories = [
+  { slug: "all", label: "All" },
+  { slug: "performance", label: "Performance" },
+  { slug: "security", label: "Security" },
+];
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString("en-AU", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Store Auditor Insights",
+  description:
+    "Guides, audits, and tactical analysis for Shopify performance and security. Written by the team behind Store Auditor at Defyn Digital.",
+  url: "https://storeauditor.au/insights",
+  publisher: {
+    "@type": "Organization",
+    name: "Defyn Digital",
+    url: "https://defyn.com.au",
+  },
+};
+---
+
+<BaseLayout
+  title="Insights: Shopify Performance and Security Guides"
+  description="Tactical, app-aware guides on Shopify performance, app audits, and storefront security. Written by Defyn Digital, the team behind Store Auditor."
+  structuredData={blogSchema}
+>
+  <section class="insights-hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Insights</p>
+      <h1 class="headline">
+        Shopify performance and
+        <span class="headline-spike">security guides.</span>
+      </h1>
+      <p class="lead">
+        Tactical, app-aware writing on what actually moves the metrics.
+        Maintained by
+        <a href="https://defyn.com.au" rel="noopener" class="defyn-link">Defyn Digital</a>,
+        a Sydney-based Shopify development agency.
+      </p>
+    </div>
+  </section>
+
+  <section class="insights-grid-section">
+    <div class="container">
+      <div class="insights-categories">
+        {
+          categories.map((cat) => (
+            <span class="cat-chip">{cat.label}</span>
+          ))
+        }
+      </div>
+
+      {
+        posts.length === 0 ? (
+          <p class="empty">No posts published yet. Check back soon.</p>
+        ) : (
+          <div class="posts-grid">
+            {posts.map((post) => (
+              <article class="post-card">
+                <a
+                  href={`/insights/${post.slug}`}
+                  class="post-card-link"
+                  aria-label={post.data.title}
+                />
+                <header class="post-card-head">
+                  <span class:list={["post-cat", `post-cat-${post.data.category}`]}>
+                    {post.data.category}
+                  </span>
+                  <time datetime={post.data.publishedDate.toISOString()}>
+                    {formatDate(post.data.publishedDate)}
+                  </time>
+                </header>
+                <h2 class="post-card-title">{post.data.title}</h2>
+                <p class="post-card-desc">{post.data.description}</p>
+                <footer class="post-card-foot">
+                  <span>{post.data.readingTime} min read</span>
+                  <span class="post-card-arrow" aria-hidden="true">→</span>
+                </footer>
+              </article>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <CtaBlock
+    eyebrow="Run an audit"
+    heading="Stop reading guides. See your own audit."
+    description="Install Store Auditor free and get a real per-app report of your Shopify storefront in 90 seconds."
+    secondaryLabel="See how it works"
+    secondaryUrl="/how-it-works"
+  />
+</BaseLayout>
+
+<style>
+  .insights-hero {
+    padding-block: clamp(4rem, 9vw, 8rem) clamp(2rem, 4vw, 4rem);
+  }
+  .insights-hero .headline {
+    margin-block: var(--space-24) var(--space-24);
+  }
+  .defyn-link {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .defyn-link:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  .insights-grid-section {
+    padding-top: var(--space-32);
+  }
+
+  .insights-categories {
+    display: flex;
+    gap: var(--space-12);
+    margin-bottom: var(--space-48);
+    flex-wrap: wrap;
+  }
+
+  .cat-chip {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-14);
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-24);
+  }
+
+  .post-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    transition:
+      border-color var(--dur-base) var(--ease),
+      transform var(--dur-base) var(--ease),
+      box-shadow var(--dur-base) var(--ease);
+  }
+
+  .post-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(245, 158, 11, 0.25);
+  }
+
+  .post-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: var(--radius-lg);
+  }
+
+  .post-card > *:not(.post-card-link) {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .post-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-12);
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+  }
+
+  .post-cat {
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .post-cat-performance {
+    background: var(--accent-soft);
+    color: #fbbf24;
+  }
+
+  .post-cat-security {
+    background: rgba(99, 102, 241, 0.14);
+    color: #a5b4fc;
+  }
+
+  .post-cat-general {
+    background: var(--success-soft);
+    color: var(--success);
+  }
+
+  .post-card-title {
+    font-size: var(--fs-20);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+    color: var(--text);
+  }
+
+  .post-card-desc {
+    color: var(--text-secondary);
+    font-size: var(--fs-14);
+    line-height: 1.55;
+    flex-grow: 1;
+  }
+
+  .post-card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-tertiary);
+    font-size: var(--fs-12);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .post-card-arrow {
+    color: var(--accent);
+    font-size: var(--fs-18);
+    transition: transform var(--dur-base) var(--ease);
+  }
+
+  .post-card:hover .post-card-arrow {
+    transform: translateX(4px);
+  }
+
+  .empty {
+    color: var(--text-tertiary);
+    text-align: center;
+    padding-block: var(--space-64);
+    font-size: var(--fs-18);
+  }
+
+  @media (max-width: 720px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
