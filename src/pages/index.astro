@@ -5,6 +5,7 @@ import AppList from "~/components/AppList.astro";
 import TrustStrip from "~/components/TrustStrip.astro";
 import FAQ from "~/components/FAQ.astro";
 import CtaBlock from "~/components/CtaBlock.astro";
+import ShopifyBadge from "~/components/ShopifyBadge.astro";
 
 const APP_STORE_URL = "https://apps.shopify.com/store-auditor";
 
@@ -72,7 +73,7 @@ const faqItems = [
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Built for Shopify</p>
+        <ShopifyBadge variant="pill" class="hero-badge" />
         <h1 class="headline">
           See which Shopify apps slow your store.
           <span class="headline-spike">By name.</span>
@@ -381,6 +382,10 @@ const faqItems = [
   }
 
   .hero-text .eyebrow {
+    margin-bottom: var(--space-24);
+  }
+
+  .hero-text :global(.hero-badge) {
     margin-bottom: var(--space-24);
   }
 

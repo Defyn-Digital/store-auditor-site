@@ -1,0 +1,179 @@
+---
+/*
+  "Live on the Shopify App Store" badge. Links to the approved listing.
+  Two variants: "pill" (compact, for hero/inline) and "block" (footer card).
+*/
+interface Props {
+  variant?: "pill" | "block";
+  class?: string;
+}
+const { variant = "pill", class: className } = Astro.props;
+const LISTING_URL = "https://apps.shopify.com/store-auditor";
+---
+
+{
+  variant === "pill" ? (
+    <a
+      href={LISTING_URL}
+      class:list={["shopify-badge-pill", className]}
+      aria-label="Store Auditor is live on the Shopify App Store"
+    >
+      <span class="badge-dot" aria-hidden="true" />
+      <span class="badge-text">Live on the Shopify App Store</span>
+      <svg
+        class="badge-arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        width="13"
+        height="13"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M7 17L17 7M9 7h8v8" />
+      </svg>
+    </a>
+  ) : (
+    <a
+      href={LISTING_URL}
+      class:list={["shopify-badge-block", className]}
+      aria-label="View Store Auditor on the Shopify App Store"
+    >
+      <span class="block-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12l5 5L20 7" />
+        </svg>
+      </span>
+      <span class="block-copy">
+        <span class="block-label">Approved and live</span>
+        <span class="block-sub">View on the Shopify App Store</span>
+      </span>
+      <svg
+        class="block-arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M7 17L17 7M9 7h8v8" />
+      </svg>
+    </a>
+  )
+}
+
+<style>
+  /* PILL */
+  .shopify-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem 0.375rem 0.625rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-soft);
+    background: var(--success-soft);
+    color: var(--text-secondary);
+    font-size: var(--fs-12);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition:
+      border-color var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease),
+      transform var(--dur-fast) var(--ease);
+  }
+
+  .shopify-badge-pill:hover {
+    border-color: var(--success);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+    flex-shrink: 0;
+  }
+
+  .badge-arrow {
+    color: var(--text-tertiary);
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .shopify-badge-pill:hover .badge-arrow {
+    color: var(--success);
+  }
+
+  /* BLOCK */
+  .shopify-badge-block {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-16) var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-soft);
+    background: var(--bg-card);
+    color: var(--text);
+    transition:
+      border-color var(--dur-fast) var(--ease),
+      transform var(--dur-fast) var(--ease);
+  }
+
+  .shopify-badge-block:hover {
+    border-color: var(--success);
+    transform: translateY(-1px);
+  }
+
+  .block-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--success-soft);
+    color: var(--success);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .block-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .block-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .block-label {
+    font-size: var(--fs-14);
+    font-weight: 600;
+  }
+
+  .block-sub {
+    font-size: var(--fs-12);
+    color: var(--text-tertiary);
+  }
+
+  .block-arrow {
+    color: var(--text-tertiary);
+    margin-left: var(--space-8);
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .shopify-badge-block:hover .block-arrow {
+    color: var(--success);
+  }
+</style>

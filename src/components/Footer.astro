@@ -1,5 +1,6 @@
 ---
 import PulseLogo from "./PulseLogo.astro";
+import ShopifyBadge from "./ShopifyBadge.astro";
 
 const year = new Date().getFullYear();
 
@@ -50,6 +51,7 @@ const columns = [
         Built in Sydney by{" "}
         <a href="https://defyn.com.au" rel="noopener">Defyn Digital</a>.
       </p>
+      <ShopifyBadge variant="block" class="footer-badge" />
     </div>
 
     <div class="footer-grid">
@@ -123,6 +125,11 @@ const columns = [
 
   .brand-meta {
     font-size: var(--fs-14);
+    margin-bottom: var(--space-20);
+  }
+
+  :global(.footer-badge) {
+    margin-top: var(--space-4);
   }
 
   .brand-meta a {
