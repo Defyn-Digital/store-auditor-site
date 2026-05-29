@@ -1,0 +1,71 @@
+name: Daily insights post
+
+on:
+  # 23:00 UTC = 09:00 AEST (UTC+10). During AEDT (Oct-Apr Sydney summer)
+  # this runs at 10:00 local. Acceptable shift for a blog cron. Switch to
+  # '0 22 * * *' if you want a strict 9 AM year-round through DST.
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-insights
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate post
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/daily-blog.mjs
+
+      - name: Commit and push
+        if: steps.gen.outputs.changed == 'true'
+        run: |
+          git config user.name "store-auditor-bot"
+          git config user.email "store-auditor-bot@users.noreply.github.com"
+          git add src/content/insights/${{ steps.gen.outputs.slug }}.md content/blog-calendar.json
+          git commit -F /tmp/commit-msg.txt
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Daily insights run"
+            echo ""
+            if [ "${{ steps.gen.outputs.changed }}" = "true" ]; then
+              echo "**Published:** \`${{ steps.gen.outputs.slug }}\`"
+              echo ""
+              echo "**Title:** ${{ steps.gen.outputs.title }}"
+              echo ""
+              echo "**Day:** ${{ steps.gen.outputs.day }} of 100"
+              echo ""
+              echo "Live at https://storeauditor.au/insights/${{ steps.gen.outputs.slug }}"
+            else
+              echo "Nothing to commit (calendar complete or generation failed)."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
