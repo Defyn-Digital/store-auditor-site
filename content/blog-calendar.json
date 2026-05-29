@@ -50,7 +50,7 @@
     },
     {
       "day": 4,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-cart-page-speed",
       "category": "performance",
       "primaryKeyword": "Shopify cart page speed",
@@ -58,7 +58,8 @@
       "internalLinks": [
         "shopify-core-web-vitals-2026-benchmarks",
         "shopify-mobile-speed-7-fixes"
-      ]
+      ],
+      "publishedAt": "2026-05-29T23:12:22.488Z"
     },
     {
       "day": 5,
