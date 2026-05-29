@@ -9,105 +9,1209 @@
     "internalLinks": "slugs of other insights articles to link to from this one"
   },
   "posts": [
-    { "day": 1, "status": "pending", "slug": "shopify-app-install-checklist", "category": "security", "primaryKeyword": "Shopify app install checklist", "angle": "The 7-point checklist every merchant should run before installing a new Shopify app", "internalLinks": ["audit-shopify-app-permissions", "identify-malicious-shopify-apps"] },
-    { "day": 2, "status": "pending", "slug": "shopify-third-party-script-audit", "category": "performance", "primaryKeyword": "third-party scripts Shopify", "angle": "Why third-party scripts are the biggest performance lever on Shopify and how to triage them", "internalLinks": ["theme-app-extensions-vs-script-tags", "shopify-mobile-speed-7-fixes"] },
-    { "day": 3, "status": "pending", "slug": "shopify-app-uninstall-cleanup", "category": "security", "primaryKeyword": "Shopify app uninstall cleanup", "angle": "When you uninstall a Shopify app it does not always clean up after itself. Here is the post-uninstall audit.", "internalLinks": ["audit-shopify-app-permissions", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 4, "status": "pending", "slug": "shopify-cart-page-speed", "category": "performance", "primaryKeyword": "Shopify cart page speed", "angle": "Why cart pages tend to be the slowest in your store and the specific fixes", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 5, "status": "pending", "slug": "shopify-app-permissions-red-flags", "category": "security", "primaryKeyword": "Shopify app permission red flags", "angle": "The OAuth scope requests that should make you hesitate before clicking install", "internalLinks": ["audit-shopify-app-permissions", "identify-malicious-shopify-apps"] },
-    { "day": 6, "status": "pending", "slug": "shopify-product-page-lcp", "category": "performance", "primaryKeyword": "Shopify product page LCP", "angle": "Largest Contentful Paint on product pages and the hero-image fix that moves it most", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 7, "status": "pending", "slug": "shopify-storefront-api-security", "category": "security", "primaryKeyword": "Shopify Storefront API security", "angle": "How to safely expose data via the Storefront API without leaking what should stay private", "internalLinks": ["audit-shopify-app-permissions", "shopify-webhook-security-hmac"] },
-    { "day": 8, "status": "pending", "slug": "shopify-collection-page-performance", "category": "performance", "primaryKeyword": "Shopify collection page performance", "angle": "Collection pages with 100+ products: paginate, infinite-scroll, or load-more, ranked by Web Vitals", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "lazy-load-shopify-review-widgets"] },
-    { "day": 9, "status": "pending", "slug": "shopify-2fa-account-security", "category": "security", "primaryKeyword": "Shopify two-factor authentication", "angle": "Why every Shopify merchant should enforce 2FA on staff accounts and the exact rollout playbook", "internalLinks": ["audit-shopify-app-permissions", "shopify-pci-compliance-apps"] },
-    { "day": 10, "status": "pending", "slug": "shopify-font-loading-performance", "category": "performance", "primaryKeyword": "Shopify font loading", "angle": "Custom fonts can add 800ms of layout shift. Here is the font-display: swap and preload pattern that fixes it", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 11, "status": "pending", "slug": "shopify-app-store-fake-reviews", "category": "security", "primaryKeyword": "Shopify App Store fake reviews", "angle": "How to spot manipulated app reviews and judge real merchant signal", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 12, "status": "pending", "slug": "shopify-image-optimization-2026", "category": "performance", "primaryKeyword": "Shopify image optimization", "angle": "The Shopify image_url filter, WebP, and AVIF: the 2026 image-pipeline guide", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 13, "status": "pending", "slug": "shopify-checkout-extensibility-security", "category": "security", "primaryKeyword": "Shopify checkout extensibility security", "angle": "What checkout extensions can and cannot do, and the security model behind the new Checkout UI", "internalLinks": ["shopify-pci-compliance-apps", "audit-shopify-app-permissions"] },
-    { "day": 14, "status": "pending", "slug": "shopify-render-blocking-resources", "category": "performance", "primaryKeyword": "Shopify render blocking resources", "angle": "How to identify and defer render-blocking CSS and JS in a Shopify theme", "internalLinks": ["shopify-mobile-speed-7-fixes", "theme-app-extensions-vs-script-tags"] },
-    { "day": 15, "status": "pending", "slug": "shopify-data-leakage-app-uninstall", "category": "security", "primaryKeyword": "Shopify app data leakage", "angle": "What data your former apps still hold after you uninstall them and how to force deletion", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 16, "status": "pending", "slug": "shopify-cls-layout-shift-fixes", "category": "performance", "primaryKeyword": "Shopify CLS layout shift", "angle": "Cumulative Layout Shift on Shopify storefronts: the 4 root causes and their fixes", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "lazy-load-shopify-review-widgets"] },
-    { "day": 17, "status": "pending", "slug": "shopify-staff-account-permissions", "category": "security", "primaryKeyword": "Shopify staff account permissions", "angle": "Role-based access control for Shopify teams: the principle-of-least-privilege playbook", "internalLinks": ["audit-shopify-app-permissions", "shopify-pci-compliance-apps"] },
-    { "day": 18, "status": "pending", "slug": "shopify-inp-interaction-next-paint", "category": "performance", "primaryKeyword": "Shopify INP optimization", "angle": "Interaction to Next Paint replaced FID in 2024. Here is why most Shopify stores fail INP and what fixes it", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 19, "status": "pending", "slug": "shopify-app-supply-chain-security", "category": "security", "primaryKeyword": "Shopify app supply chain security", "angle": "Your apps depend on other apps. How to vet the supply chain behind your storefront", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 20, "status": "pending", "slug": "shopify-lazy-load-images-correctly", "category": "performance", "primaryKeyword": "Shopify lazy load images", "angle": "How loading='lazy' breaks LCP if you use it on the hero, and the correct above-fold rule", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 21, "status": "pending", "slug": "shopify-pixel-data-privacy", "category": "security", "primaryKeyword": "Shopify pixel privacy", "angle": "What Meta Pixel, GA4, and TikTok Pixel actually collect on your storefront and the customer-consent implications", "internalLinks": ["shopify-customer-data-gdpr-compliance", "klaviyo-vs-web-pixels-performance"] },
-    { "day": 22, "status": "pending", "slug": "shopify-prefetch-page-navigation", "category": "performance", "primaryKeyword": "Shopify prefetch links", "angle": "Instant.page, Quicklink, and Shopify Hydrogen prefetch: which actually speeds up navigation", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 23, "status": "pending", "slug": "shopify-customer-account-security", "category": "security", "primaryKeyword": "Shopify customer account security", "angle": "Shopify's new customer accounts: what changed for security and what merchants must do", "internalLinks": ["shopify-customer-data-gdpr-compliance", "shopify-pci-compliance-apps"] },
-    { "day": 24, "status": "pending", "slug": "shopify-cdn-edge-caching", "category": "performance", "primaryKeyword": "Shopify CDN caching", "angle": "How Shopify's edge cache actually works, what invalidates it, and how apps can break caching", "internalLinks": ["shopify-mobile-speed-7-fixes", "theme-app-extensions-vs-script-tags"] },
-    { "day": 25, "status": "pending", "slug": "shopify-bot-protection", "category": "security", "primaryKeyword": "Shopify bot protection", "angle": "Cloudflare bot management, Shopify's built-in protections, and when to add Captcha", "internalLinks": ["identify-malicious-shopify-apps", "shopify-pci-compliance-apps"] },
-    { "day": 26, "status": "pending", "slug": "shopify-search-performance-predictive", "category": "performance", "primaryKeyword": "Shopify predictive search performance", "angle": "Storefront predictive search APIs benchmarked against popular search apps", "internalLinks": ["shopify-mobile-speed-7-fixes", "lazy-load-shopify-review-widgets"] },
-    { "day": 27, "status": "pending", "slug": "shopify-saved-cart-security", "category": "security", "primaryKeyword": "Shopify saved cart security", "angle": "Saved-cart apps, persistent cart tokens, and the privacy implications", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 28, "status": "pending", "slug": "shopify-mobile-tap-targets", "category": "performance", "primaryKeyword": "Shopify mobile tap targets", "angle": "Mobile tap target sizing, INP, and the new accessibility scores that affect SEO", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 29, "status": "pending", "slug": "shopify-app-data-residency", "category": "security", "primaryKeyword": "Shopify app data residency", "angle": "Where your Shopify apps store your data geographically and why it matters for EU and AU merchants", "internalLinks": ["shopify-customer-data-gdpr-compliance", "shopify-pci-compliance-apps"] },
-    { "day": 30, "status": "pending", "slug": "shopify-script-async-defer", "category": "performance", "primaryKeyword": "Shopify async defer scripts", "angle": "async vs defer vs module: the only rules you need to know for Shopify themes", "internalLinks": ["theme-app-extensions-vs-script-tags", "shopify-mobile-speed-7-fixes"] },
-    { "day": 31, "status": "pending", "slug": "shopify-billing-fraud-prevention", "category": "security", "primaryKeyword": "Shopify billing fraud", "angle": "Card-testing attacks, order velocity rules, and the apps that catch them in time", "internalLinks": ["shopify-pci-compliance-apps", "identify-malicious-shopify-apps"] },
-    { "day": 32, "status": "pending", "slug": "shopify-hero-section-optimization", "category": "performance", "primaryKeyword": "Shopify hero section speed", "angle": "Why hero sections kill Web Vitals and the design constraints that preserve them", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 33, "status": "pending", "slug": "shopify-admin-api-rate-limits", "category": "security", "primaryKeyword": "Shopify Admin API rate limits", "angle": "How apps that overload the Admin API can degrade your store and how to spot them", "internalLinks": ["audit-shopify-app-permissions", "shopify-webhook-security-hmac"] },
-    { "day": 34, "status": "pending", "slug": "shopify-section-rendering-api", "category": "performance", "primaryKeyword": "Shopify Section Rendering API", "angle": "Updating page sections without full reloads. The Section Rendering API and the performance wins", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 35, "status": "pending", "slug": "shopify-app-store-trust-badges", "category": "security", "primaryKeyword": "Shopify Built for Shopify badge", "angle": "What the Built for Shopify badge actually certifies and what it does not", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 36, "status": "pending", "slug": "shopify-server-side-rendering", "category": "performance", "primaryKeyword": "Shopify server side rendering", "angle": "Liquid SSR vs Hydrogen SSR vs client-only: which Shopify rendering model wins on Web Vitals", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 37, "status": "pending", "slug": "shopify-graphql-vs-rest-security", "category": "security", "primaryKeyword": "Shopify GraphQL security", "angle": "GraphQL Admin API vs REST: scoping, throttling, and the security defaults that differ", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 38, "status": "pending", "slug": "shopify-css-bundle-size", "category": "performance", "primaryKeyword": "Shopify CSS bundle size", "angle": "Why Shopify themes ship huge CSS bundles and the critical-path-CSS pattern that fixes it", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 39, "status": "pending", "slug": "shopify-encrypted-customer-fields", "category": "security", "primaryKeyword": "Shopify encrypted customer fields", "angle": "Metafields, customer metafields, and how to encrypt sensitive data without breaking apps", "internalLinks": ["shopify-customer-data-gdpr-compliance", "shopify-pci-compliance-apps"] },
-    { "day": 40, "status": "pending", "slug": "shopify-jit-loading-cart", "category": "performance", "primaryKeyword": "Shopify cart drawer performance", "angle": "Cart drawers, mini carts, and JIT loading: the modal pattern that does not block first paint", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 41, "status": "pending", "slug": "shopify-customer-passwordless-login", "category": "security", "primaryKeyword": "Shopify passwordless login", "angle": "Shopify's email-code login: how it actually works and the threat model behind it", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 42, "status": "pending", "slug": "shopify-app-block-performance", "category": "performance", "primaryKeyword": "Shopify app block performance", "angle": "Theme App Extension blocks are not all equal. Here is how to benchmark each block individually", "internalLinks": ["theme-app-extensions-vs-script-tags", "shopify-mobile-speed-7-fixes"] },
-    { "day": 43, "status": "pending", "slug": "shopify-webhook-replay-protection", "category": "security", "primaryKeyword": "Shopify webhook replay attack", "angle": "Defending Shopify webhooks against replay attacks with nonces and timestamps", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 44, "status": "pending", "slug": "shopify-third-party-fonts", "category": "performance", "primaryKeyword": "Shopify Google Fonts", "angle": "Self-hosting Google Fonts on Shopify vs the CDN. The 350ms LCP difference", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 45, "status": "pending", "slug": "shopify-app-credential-rotation", "category": "security", "primaryKeyword": "Shopify app credential rotation", "angle": "How and when to rotate Shopify app secrets, webhook tokens, and API keys", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 46, "status": "pending", "slug": "shopify-instant-checkout-performance", "category": "performance", "primaryKeyword": "Shopify Shop Pay performance", "angle": "Shop Pay vs guest checkout: latency, conversion, and the trade-offs", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 47, "status": "pending", "slug": "shopify-app-csp-content-security", "category": "security", "primaryKeyword": "Shopify Content Security Policy", "angle": "CSP headers for Shopify storefronts and the apps that need explicit allowlists", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 48, "status": "pending", "slug": "shopify-resource-hints-preload", "category": "performance", "primaryKeyword": "Shopify resource hints preload", "angle": "preconnect, preload, dns-prefetch on Shopify: the priority list that actually helps", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 49, "status": "pending", "slug": "shopify-customer-pii-storage", "category": "security", "primaryKeyword": "Shopify customer PII storage", "angle": "Where customer PII lives inside Shopify and how apps unintentionally surface it", "internalLinks": ["shopify-customer-data-gdpr-compliance", "shopify-pci-compliance-apps"] },
-    { "day": 50, "status": "pending", "slug": "shopify-pwa-offline-storefront", "category": "performance", "primaryKeyword": "Shopify PWA service worker", "angle": "Progressive Web Apps on Shopify: service worker caching strategies and the perf trade-offs", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 51, "status": "pending", "slug": "shopify-app-iframe-sandboxing", "category": "security", "primaryKeyword": "Shopify app iframe sandboxing", "angle": "How embedded apps work inside the Shopify admin iframe and the sandbox you can rely on", "internalLinks": ["audit-shopify-app-permissions", "shopify-webhook-security-hmac"] },
-    { "day": 52, "status": "pending", "slug": "shopify-conversion-rate-vs-speed", "category": "performance", "primaryKeyword": "Shopify speed conversion rate", "angle": "The published correlation between Shopify mobile speed and conversion rate, and what your own measurement should show", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 53, "status": "pending", "slug": "shopify-app-vulnerability-disclosure", "category": "security", "primaryKeyword": "Shopify app vulnerability disclosure", "angle": "How to report a vulnerability you find in a Shopify app and what to expect from Shopify Security", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 54, "status": "pending", "slug": "shopify-section-block-rendering", "category": "performance", "primaryKeyword": "Shopify section blocks rendering", "angle": "Section vs block rendering inside Liquid: which is faster, which is more cacheable", "internalLinks": ["shopify-mobile-speed-7-fixes", "theme-app-extensions-vs-script-tags"] },
-    { "day": 55, "status": "pending", "slug": "shopify-app-jwt-session-tokens", "category": "security", "primaryKeyword": "Shopify JWT session token", "angle": "Session tokens in embedded apps: the JWT shape, the validation, the common bypasses", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 56, "status": "pending", "slug": "shopify-product-recommendations-perf", "category": "performance", "primaryKeyword": "Shopify product recommendations performance", "angle": "Shopify's native recommendations API vs third-party recommendation apps: the latency comparison", "internalLinks": ["shopify-mobile-speed-7-fixes", "lazy-load-shopify-review-widgets"] },
-    { "day": 57, "status": "pending", "slug": "shopify-customer-consent-banner", "category": "security", "primaryKeyword": "Shopify cookie consent", "angle": "Cookie consent banners on Shopify: the apps that comply, the apps that pretend", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 58, "status": "pending", "slug": "shopify-cart-throughput-flash-sale", "category": "performance", "primaryKeyword": "Shopify flash sale performance", "angle": "How Shopify storefronts handle flash-sale traffic and the bottlenecks that surface at peak", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 59, "status": "pending", "slug": "shopify-fulfillment-api-security", "category": "security", "primaryKeyword": "Shopify fulfillment API security", "angle": "Fulfillment apps and the shipping data exposure surface most merchants overlook", "internalLinks": ["audit-shopify-app-permissions", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 60, "status": "pending", "slug": "shopify-image-srcset-sizes", "category": "performance", "primaryKeyword": "Shopify responsive images srcset", "angle": "Responsive image srcset on Shopify storefronts. The bytes you save on mobile by getting this right", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 61, "status": "pending", "slug": "shopify-discount-code-security", "category": "security", "primaryKeyword": "Shopify discount code abuse", "angle": "Bulk-issued discount codes get scraped within hours. Here is the defensive setup", "internalLinks": ["identify-malicious-shopify-apps", "shopify-pci-compliance-apps"] },
-    { "day": 62, "status": "pending", "slug": "shopify-mobile-input-delay", "category": "performance", "primaryKeyword": "Shopify mobile input delay", "angle": "Why your Add to Cart button feels laggy on mobile and the long-task fix", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 63, "status": "pending", "slug": "shopify-app-encryption-at-rest", "category": "security", "primaryKeyword": "Shopify app data encryption at rest", "angle": "How to verify that an app encrypts your store data at rest and the standards to ask about", "internalLinks": ["shopify-customer-data-gdpr-compliance", "shopify-pci-compliance-apps"] },
-    { "day": 64, "status": "pending", "slug": "shopify-search-index-performance", "category": "performance", "primaryKeyword": "Shopify search filter performance", "angle": "Custom search and filter apps: the indexing strategies and the page-load impact ranked", "internalLinks": ["shopify-mobile-speed-7-fixes", "lazy-load-shopify-review-widgets"] },
-    { "day": 65, "status": "pending", "slug": "shopify-customer-export-rights", "category": "security", "primaryKeyword": "Shopify customer data export", "angle": "GDPR data-export requests on Shopify: how to fulfill them across every connected app", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 66, "status": "pending", "slug": "shopify-time-to-first-byte", "category": "performance", "primaryKeyword": "Shopify TTFB time to first byte", "angle": "Time to First Byte on Shopify storefronts: what it usually is, what it should be, what slows it", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 67, "status": "pending", "slug": "shopify-affiliate-app-fraud", "category": "security", "primaryKeyword": "Shopify affiliate app fraud", "angle": "Affiliate-tracking apps that inject hidden referrer codes and how to detect them", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 68, "status": "pending", "slug": "shopify-jit-app-block-render", "category": "performance", "primaryKeyword": "Shopify app block lazy render", "angle": "Patterns for lazy-rendering app blocks below the fold without breaking interactivity", "internalLinks": ["theme-app-extensions-vs-script-tags", "lazy-load-shopify-review-widgets"] },
-    { "day": 69, "status": "pending", "slug": "shopify-app-tos-data-clauses", "category": "security", "primaryKeyword": "Shopify app terms of service", "angle": "The data-rights clauses to read in every Shopify app's Terms of Service before installing", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 70, "status": "pending", "slug": "shopify-script-tag-deprecation", "category": "performance", "primaryKeyword": "Shopify ScriptTag API deprecation", "angle": "Shopify's plans for the ScriptTag API: timeline, migration paths, and the apps you should pre-emptively replace", "internalLinks": ["theme-app-extensions-vs-script-tags", "shopify-mobile-speed-7-fixes"] },
-    { "day": 71, "status": "pending", "slug": "shopify-recovery-email-spoofing", "category": "security", "primaryKeyword": "Shopify cart abandonment email security", "angle": "Cart-abandonment apps that send from your domain: SPF, DKIM, DMARC walked end to end", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 72, "status": "pending", "slug": "shopify-product-json-prefetch", "category": "performance", "primaryKeyword": "Shopify product JSON prefetch", "angle": "Using product.json prefetch on collection pages to make product navigation feel instant", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 73, "status": "pending", "slug": "shopify-multipass-security", "category": "security", "primaryKeyword": "Shopify Multipass security", "angle": "Multipass single sign-on on Shopify Plus: the token construction, the rotation, the threat model", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 74, "status": "pending", "slug": "shopify-streaming-html-perf", "category": "performance", "primaryKeyword": "Shopify streaming HTML", "angle": "Streamed Liquid responses and the early-flush pattern that improves perceived performance", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 75, "status": "pending", "slug": "shopify-app-3p-cookies", "category": "security", "primaryKeyword": "Shopify third party cookies apps", "angle": "Apps still relying on third-party cookies in 2026. What works, what breaks, what to migrate", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 76, "status": "pending", "slug": "shopify-search-typeahead-speed", "category": "performance", "primaryKeyword": "Shopify search typeahead speed", "angle": "Typeahead search latency: API choice, debouncing, and the perceived-speed wins", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 77, "status": "pending", "slug": "shopify-app-org-acquisition-risk", "category": "security", "primaryKeyword": "Shopify app ownership change risk", "angle": "What happens to your data when a Shopify app gets acquired by another company", "internalLinks": ["shopify-customer-data-gdpr-compliance", "identify-malicious-shopify-apps"] },
-    { "day": 78, "status": "pending", "slug": "shopify-critical-css-inline", "category": "performance", "primaryKeyword": "Shopify critical CSS inline", "angle": "Inlining critical CSS in Shopify themes: when it helps, when it hurts cache hit rate", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 79, "status": "pending", "slug": "shopify-app-staff-access-rotation", "category": "security", "primaryKeyword": "Shopify staff app access rotation", "angle": "Rotating which staff accounts authorized which apps. A quarterly hygiene playbook", "internalLinks": ["audit-shopify-app-permissions", "shopify-pci-compliance-apps"] },
-    { "day": 80, "status": "pending", "slug": "shopify-section-rendering-pjax", "category": "performance", "primaryKeyword": "Shopify partial page rendering", "angle": "Partial page rendering on Shopify: PJAX, Turbo, and Section Rendering API head to head", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 81, "status": "pending", "slug": "shopify-app-billing-scams", "category": "security", "primaryKeyword": "Shopify app billing scam", "angle": "Apps that under-bill on month one then escalate. How to catch the pattern before it hits your invoice", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 82, "status": "pending", "slug": "shopify-checkout-extensions-perf", "category": "performance", "primaryKeyword": "Shopify checkout extension performance", "angle": "Checkout UI extensions and the performance budget you should not blow past", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 83, "status": "pending", "slug": "shopify-storefront-password-leak", "category": "security", "primaryKeyword": "Shopify storefront password leak", "angle": "Password-protected storefronts and how staging URLs accidentally leak via referrer", "internalLinks": ["audit-shopify-app-permissions", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 84, "status": "pending", "slug": "shopify-edge-functions-perf", "category": "performance", "primaryKeyword": "Shopify edge function performance", "angle": "Vercel, Cloudflare, and Netlify edge functions in front of Shopify: when it helps and when it hurts", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 85, "status": "pending", "slug": "shopify-app-incident-response", "category": "security", "primaryKeyword": "Shopify app incident response", "angle": "When an app you depend on has a breach. The first 24 hours playbook for merchants", "internalLinks": ["identify-malicious-shopify-apps", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 86, "status": "pending", "slug": "shopify-fonts-fallback-flash", "category": "performance", "primaryKeyword": "Shopify font fallback FOUT FOIT", "angle": "Flash of Unstyled Text vs Flash of Invisible Text on Shopify: which to choose for CLS", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes"] },
-    { "day": 87, "status": "pending", "slug": "shopify-app-mfa-enforcement", "category": "security", "primaryKeyword": "Shopify app MFA enforcement", "angle": "Forcing MFA inside the app vendor: the merchant questions to ask before granting scopes", "internalLinks": ["audit-shopify-app-permissions", "shopify-pci-compliance-apps"] },
-    { "day": 88, "status": "pending", "slug": "shopify-currency-conversion-perf", "category": "performance", "primaryKeyword": "Shopify multi-currency performance", "angle": "Multi-currency apps and the per-page weight they add. Native Shopify Markets vs third-party converters", "internalLinks": ["shopify-mobile-speed-7-fixes", "lazy-load-shopify-review-widgets"] },
-    { "day": 89, "status": "pending", "slug": "shopify-app-shared-customer-token", "category": "security", "primaryKeyword": "Shopify app customer token sharing", "angle": "When two apps share a customer token. The attack surface and the audit trail", "internalLinks": ["audit-shopify-app-permissions", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 90, "status": "pending", "slug": "shopify-cart-section-rerender", "category": "performance", "primaryKeyword": "Shopify cart section re-render", "angle": "Re-rendering the cart icon and drawer without a full reload. The technique that does not block input", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 91, "status": "pending", "slug": "shopify-app-marketplace-redirect", "category": "security", "primaryKeyword": "Shopify app open redirect", "angle": "Open redirect vulnerabilities in app OAuth flows and how to spot them", "internalLinks": ["shopify-webhook-security-hmac", "audit-shopify-app-permissions"] },
-    { "day": 92, "status": "pending", "slug": "shopify-collection-filter-perf", "category": "performance", "primaryKeyword": "Shopify collection filter performance", "angle": "Faceted navigation on collection pages: the JS budget and the queries to avoid", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 93, "status": "pending", "slug": "shopify-pcd-level-3-future", "category": "security", "primaryKeyword": "Shopify Protected Customer Data Level 3", "angle": "What we expect Protected Customer Data Level 3 to look like and how to prepare your app", "internalLinks": ["shopify-customer-data-gdpr-compliance", "audit-shopify-app-permissions"] },
-    { "day": 94, "status": "pending", "slug": "shopify-image-cdn-priority-hints", "category": "performance", "primaryKeyword": "Shopify image priority hints", "angle": "fetchpriority hints on the LCP image: when Shopify's CDN respects them and when it does not", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 95, "status": "pending", "slug": "shopify-staff-phishing-prevention", "category": "security", "primaryKeyword": "Shopify staff phishing", "angle": "Phishing campaigns targeting Shopify store owners. The recognition checklist for your team", "internalLinks": ["audit-shopify-app-permissions", "identify-malicious-shopify-apps"] },
-    { "day": 96, "status": "pending", "slug": "shopify-streaming-product-listing", "category": "performance", "primaryKeyword": "Shopify streaming product listings", "angle": "Streaming product listings via Server-Sent Events for slow connections", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 97, "status": "pending", "slug": "shopify-app-impersonation-attacks", "category": "security", "primaryKeyword": "Shopify app impersonation", "angle": "Lookalike apps and brand impersonation in the Shopify App Store. How to verify the publisher", "internalLinks": ["identify-malicious-shopify-apps", "audit-shopify-app-permissions"] },
-    { "day": 98, "status": "pending", "slug": "shopify-css-container-queries", "category": "performance", "primaryKeyword": "Shopify CSS container queries", "angle": "CSS container queries on Shopify themes. The responsive pattern that does not need JS", "internalLinks": ["shopify-mobile-speed-7-fixes", "shopify-core-web-vitals-2026-benchmarks"] },
-    { "day": 99, "status": "pending", "slug": "shopify-zero-trust-app-stack", "category": "security", "primaryKeyword": "Shopify zero trust app stack", "angle": "Building a zero-trust Shopify app stack. The mental model and the practical permissions", "internalLinks": ["audit-shopify-app-permissions", "shopify-customer-data-gdpr-compliance"] },
-    { "day": 100, "status": "pending", "slug": "shopify-perf-audit-yearly-review", "category": "performance", "primaryKeyword": "Shopify yearly performance review", "angle": "Running a yearly Shopify performance and security audit. The 30-point review every merchant should do", "internalLinks": ["shopify-core-web-vitals-2026-benchmarks", "shopify-mobile-speed-7-fixes", "audit-shopify-app-permissions"] }
+    {
+      "day": 1,
+      "status": "done",
+      "slug": "shopify-app-install-checklist",
+      "category": "security",
+      "primaryKeyword": "Shopify app install checklist",
+      "angle": "The 7-point checklist every merchant should run before installing a new Shopify app",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "identify-malicious-shopify-apps"
+      ],
+      "publishedAt": "2026-05-28T09:00:00+10:00"
+    },
+    {
+      "day": 2,
+      "status": "done",
+      "slug": "shopify-third-party-script-audit",
+      "category": "performance",
+      "primaryKeyword": "third-party scripts Shopify",
+      "angle": "Why third-party scripts are the biggest performance lever on Shopify and how to triage them",
+      "internalLinks": [
+        "theme-app-extensions-vs-script-tags",
+        "shopify-mobile-speed-7-fixes"
+      ],
+      "publishedAt": "2026-05-29T09:00:00+10:00"
+    },
+    {
+      "day": 3,
+      "status": "done",
+      "slug": "shopify-app-uninstall-cleanup",
+      "category": "security",
+      "primaryKeyword": "Shopify app uninstall cleanup",
+      "angle": "When you uninstall a Shopify app it does not always clean up after itself. Here is the post-uninstall audit.",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-customer-data-gdpr-compliance"
+      ],
+      "publishedAt": "2026-05-30T09:00:00+10:00"
+    },
+    {
+      "day": 4,
+      "status": "pending",
+      "slug": "shopify-cart-page-speed",
+      "category": "performance",
+      "primaryKeyword": "Shopify cart page speed",
+      "angle": "Why cart pages tend to be the slowest in your store and the specific fixes",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 5,
+      "status": "pending",
+      "slug": "shopify-app-permissions-red-flags",
+      "category": "security",
+      "primaryKeyword": "Shopify app permission red flags",
+      "angle": "The OAuth scope requests that should make you hesitate before clicking install",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "identify-malicious-shopify-apps"
+      ]
+    },
+    {
+      "day": 6,
+      "status": "pending",
+      "slug": "shopify-product-page-lcp",
+      "category": "performance",
+      "primaryKeyword": "Shopify product page LCP",
+      "angle": "Largest Contentful Paint on product pages and the hero-image fix that moves it most",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 7,
+      "status": "pending",
+      "slug": "shopify-storefront-api-security",
+      "category": "security",
+      "primaryKeyword": "Shopify Storefront API security",
+      "angle": "How to safely expose data via the Storefront API without leaking what should stay private",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-webhook-security-hmac"
+      ]
+    },
+    {
+      "day": 8,
+      "status": "pending",
+      "slug": "shopify-collection-page-performance",
+      "category": "performance",
+      "primaryKeyword": "Shopify collection page performance",
+      "angle": "Collection pages with 100+ products: paginate, infinite-scroll, or load-more, ranked by Web Vitals",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 9,
+      "status": "pending",
+      "slug": "shopify-2fa-account-security",
+      "category": "security",
+      "primaryKeyword": "Shopify two-factor authentication",
+      "angle": "Why every Shopify merchant should enforce 2FA on staff accounts and the exact rollout playbook",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 10,
+      "status": "pending",
+      "slug": "shopify-font-loading-performance",
+      "category": "performance",
+      "primaryKeyword": "Shopify font loading",
+      "angle": "Custom fonts can add 800ms of layout shift. Here is the font-display: swap and preload pattern that fixes it",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 11,
+      "status": "pending",
+      "slug": "shopify-app-store-fake-reviews",
+      "category": "security",
+      "primaryKeyword": "Shopify App Store fake reviews",
+      "angle": "How to spot manipulated app reviews and judge real merchant signal",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 12,
+      "status": "pending",
+      "slug": "shopify-image-optimization-2026",
+      "category": "performance",
+      "primaryKeyword": "Shopify image optimization",
+      "angle": "The Shopify image_url filter, WebP, and AVIF: the 2026 image-pipeline guide",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 13,
+      "status": "pending",
+      "slug": "shopify-checkout-extensibility-security",
+      "category": "security",
+      "primaryKeyword": "Shopify checkout extensibility security",
+      "angle": "What checkout extensions can and cannot do, and the security model behind the new Checkout UI",
+      "internalLinks": [
+        "shopify-pci-compliance-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 14,
+      "status": "pending",
+      "slug": "shopify-render-blocking-resources",
+      "category": "performance",
+      "primaryKeyword": "Shopify render blocking resources",
+      "angle": "How to identify and defer render-blocking CSS and JS in a Shopify theme",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "theme-app-extensions-vs-script-tags"
+      ]
+    },
+    {
+      "day": 15,
+      "status": "pending",
+      "slug": "shopify-data-leakage-app-uninstall",
+      "category": "security",
+      "primaryKeyword": "Shopify app data leakage",
+      "angle": "What data your former apps still hold after you uninstall them and how to force deletion",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 16,
+      "status": "pending",
+      "slug": "shopify-cls-layout-shift-fixes",
+      "category": "performance",
+      "primaryKeyword": "Shopify CLS layout shift",
+      "angle": "Cumulative Layout Shift on Shopify storefronts: the 4 root causes and their fixes",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 17,
+      "status": "pending",
+      "slug": "shopify-staff-account-permissions",
+      "category": "security",
+      "primaryKeyword": "Shopify staff account permissions",
+      "angle": "Role-based access control for Shopify teams: the principle-of-least-privilege playbook",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 18,
+      "status": "pending",
+      "slug": "shopify-inp-interaction-next-paint",
+      "category": "performance",
+      "primaryKeyword": "Shopify INP optimization",
+      "angle": "Interaction to Next Paint replaced FID in 2024. Here is why most Shopify stores fail INP and what fixes it",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 19,
+      "status": "pending",
+      "slug": "shopify-app-supply-chain-security",
+      "category": "security",
+      "primaryKeyword": "Shopify app supply chain security",
+      "angle": "Your apps depend on other apps. How to vet the supply chain behind your storefront",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 20,
+      "status": "pending",
+      "slug": "shopify-lazy-load-images-correctly",
+      "category": "performance",
+      "primaryKeyword": "Shopify lazy load images",
+      "angle": "How loading='lazy' breaks LCP if you use it on the hero, and the correct above-fold rule",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 21,
+      "status": "pending",
+      "slug": "shopify-pixel-data-privacy",
+      "category": "security",
+      "primaryKeyword": "Shopify pixel privacy",
+      "angle": "What Meta Pixel, GA4, and TikTok Pixel actually collect on your storefront and the customer-consent implications",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "klaviyo-vs-web-pixels-performance"
+      ]
+    },
+    {
+      "day": 22,
+      "status": "pending",
+      "slug": "shopify-prefetch-page-navigation",
+      "category": "performance",
+      "primaryKeyword": "Shopify prefetch links",
+      "angle": "Instant.page, Quicklink, and Shopify Hydrogen prefetch: which actually speeds up navigation",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 23,
+      "status": "pending",
+      "slug": "shopify-customer-account-security",
+      "category": "security",
+      "primaryKeyword": "Shopify customer account security",
+      "angle": "Shopify's new customer accounts: what changed for security and what merchants must do",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 24,
+      "status": "pending",
+      "slug": "shopify-cdn-edge-caching",
+      "category": "performance",
+      "primaryKeyword": "Shopify CDN caching",
+      "angle": "How Shopify's edge cache actually works, what invalidates it, and how apps can break caching",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "theme-app-extensions-vs-script-tags"
+      ]
+    },
+    {
+      "day": 25,
+      "status": "pending",
+      "slug": "shopify-bot-protection",
+      "category": "security",
+      "primaryKeyword": "Shopify bot protection",
+      "angle": "Cloudflare bot management, Shopify's built-in protections, and when to add Captcha",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 26,
+      "status": "pending",
+      "slug": "shopify-search-performance-predictive",
+      "category": "performance",
+      "primaryKeyword": "Shopify predictive search performance",
+      "angle": "Storefront predictive search APIs benchmarked against popular search apps",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 27,
+      "status": "pending",
+      "slug": "shopify-saved-cart-security",
+      "category": "security",
+      "primaryKeyword": "Shopify saved cart security",
+      "angle": "Saved-cart apps, persistent cart tokens, and the privacy implications",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 28,
+      "status": "pending",
+      "slug": "shopify-mobile-tap-targets",
+      "category": "performance",
+      "primaryKeyword": "Shopify mobile tap targets",
+      "angle": "Mobile tap target sizing, INP, and the new accessibility scores that affect SEO",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 29,
+      "status": "pending",
+      "slug": "shopify-app-data-residency",
+      "category": "security",
+      "primaryKeyword": "Shopify app data residency",
+      "angle": "Where your Shopify apps store your data geographically and why it matters for EU and AU merchants",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 30,
+      "status": "pending",
+      "slug": "shopify-script-async-defer",
+      "category": "performance",
+      "primaryKeyword": "Shopify async defer scripts",
+      "angle": "async vs defer vs module: the only rules you need to know for Shopify themes",
+      "internalLinks": [
+        "theme-app-extensions-vs-script-tags",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 31,
+      "status": "pending",
+      "slug": "shopify-billing-fraud-prevention",
+      "category": "security",
+      "primaryKeyword": "Shopify billing fraud",
+      "angle": "Card-testing attacks, order velocity rules, and the apps that catch them in time",
+      "internalLinks": [
+        "shopify-pci-compliance-apps",
+        "identify-malicious-shopify-apps"
+      ]
+    },
+    {
+      "day": 32,
+      "status": "pending",
+      "slug": "shopify-hero-section-optimization",
+      "category": "performance",
+      "primaryKeyword": "Shopify hero section speed",
+      "angle": "Why hero sections kill Web Vitals and the design constraints that preserve them",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 33,
+      "status": "pending",
+      "slug": "shopify-admin-api-rate-limits",
+      "category": "security",
+      "primaryKeyword": "Shopify Admin API rate limits",
+      "angle": "How apps that overload the Admin API can degrade your store and how to spot them",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-webhook-security-hmac"
+      ]
+    },
+    {
+      "day": 34,
+      "status": "pending",
+      "slug": "shopify-section-rendering-api",
+      "category": "performance",
+      "primaryKeyword": "Shopify Section Rendering API",
+      "angle": "Updating page sections without full reloads. The Section Rendering API and the performance wins",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 35,
+      "status": "pending",
+      "slug": "shopify-app-store-trust-badges",
+      "category": "security",
+      "primaryKeyword": "Shopify Built for Shopify badge",
+      "angle": "What the Built for Shopify badge actually certifies and what it does not",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 36,
+      "status": "pending",
+      "slug": "shopify-server-side-rendering",
+      "category": "performance",
+      "primaryKeyword": "Shopify server side rendering",
+      "angle": "Liquid SSR vs Hydrogen SSR vs client-only: which Shopify rendering model wins on Web Vitals",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 37,
+      "status": "pending",
+      "slug": "shopify-graphql-vs-rest-security",
+      "category": "security",
+      "primaryKeyword": "Shopify GraphQL security",
+      "angle": "GraphQL Admin API vs REST: scoping, throttling, and the security defaults that differ",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 38,
+      "status": "pending",
+      "slug": "shopify-css-bundle-size",
+      "category": "performance",
+      "primaryKeyword": "Shopify CSS bundle size",
+      "angle": "Why Shopify themes ship huge CSS bundles and the critical-path-CSS pattern that fixes it",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 39,
+      "status": "pending",
+      "slug": "shopify-encrypted-customer-fields",
+      "category": "security",
+      "primaryKeyword": "Shopify encrypted customer fields",
+      "angle": "Metafields, customer metafields, and how to encrypt sensitive data without breaking apps",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 40,
+      "status": "pending",
+      "slug": "shopify-jit-loading-cart",
+      "category": "performance",
+      "primaryKeyword": "Shopify cart drawer performance",
+      "angle": "Cart drawers, mini carts, and JIT loading: the modal pattern that does not block first paint",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 41,
+      "status": "pending",
+      "slug": "shopify-customer-passwordless-login",
+      "category": "security",
+      "primaryKeyword": "Shopify passwordless login",
+      "angle": "Shopify's email-code login: how it actually works and the threat model behind it",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 42,
+      "status": "pending",
+      "slug": "shopify-app-block-performance",
+      "category": "performance",
+      "primaryKeyword": "Shopify app block performance",
+      "angle": "Theme App Extension blocks are not all equal. Here is how to benchmark each block individually",
+      "internalLinks": [
+        "theme-app-extensions-vs-script-tags",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 43,
+      "status": "pending",
+      "slug": "shopify-webhook-replay-protection",
+      "category": "security",
+      "primaryKeyword": "Shopify webhook replay attack",
+      "angle": "Defending Shopify webhooks against replay attacks with nonces and timestamps",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 44,
+      "status": "pending",
+      "slug": "shopify-third-party-fonts",
+      "category": "performance",
+      "primaryKeyword": "Shopify Google Fonts",
+      "angle": "Self-hosting Google Fonts on Shopify vs the CDN. The 350ms LCP difference",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 45,
+      "status": "pending",
+      "slug": "shopify-app-credential-rotation",
+      "category": "security",
+      "primaryKeyword": "Shopify app credential rotation",
+      "angle": "How and when to rotate Shopify app secrets, webhook tokens, and API keys",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 46,
+      "status": "pending",
+      "slug": "shopify-instant-checkout-performance",
+      "category": "performance",
+      "primaryKeyword": "Shopify Shop Pay performance",
+      "angle": "Shop Pay vs guest checkout: latency, conversion, and the trade-offs",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 47,
+      "status": "pending",
+      "slug": "shopify-app-csp-content-security",
+      "category": "security",
+      "primaryKeyword": "Shopify Content Security Policy",
+      "angle": "CSP headers for Shopify storefronts and the apps that need explicit allowlists",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 48,
+      "status": "pending",
+      "slug": "shopify-resource-hints-preload",
+      "category": "performance",
+      "primaryKeyword": "Shopify resource hints preload",
+      "angle": "preconnect, preload, dns-prefetch on Shopify: the priority list that actually helps",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 49,
+      "status": "pending",
+      "slug": "shopify-customer-pii-storage",
+      "category": "security",
+      "primaryKeyword": "Shopify customer PII storage",
+      "angle": "Where customer PII lives inside Shopify and how apps unintentionally surface it",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 50,
+      "status": "pending",
+      "slug": "shopify-pwa-offline-storefront",
+      "category": "performance",
+      "primaryKeyword": "Shopify PWA service worker",
+      "angle": "Progressive Web Apps on Shopify: service worker caching strategies and the perf trade-offs",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 51,
+      "status": "pending",
+      "slug": "shopify-app-iframe-sandboxing",
+      "category": "security",
+      "primaryKeyword": "Shopify app iframe sandboxing",
+      "angle": "How embedded apps work inside the Shopify admin iframe and the sandbox you can rely on",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-webhook-security-hmac"
+      ]
+    },
+    {
+      "day": 52,
+      "status": "pending",
+      "slug": "shopify-conversion-rate-vs-speed",
+      "category": "performance",
+      "primaryKeyword": "Shopify speed conversion rate",
+      "angle": "The published correlation between Shopify mobile speed and conversion rate, and what your own measurement should show",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 53,
+      "status": "pending",
+      "slug": "shopify-app-vulnerability-disclosure",
+      "category": "security",
+      "primaryKeyword": "Shopify app vulnerability disclosure",
+      "angle": "How to report a vulnerability you find in a Shopify app and what to expect from Shopify Security",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 54,
+      "status": "pending",
+      "slug": "shopify-section-block-rendering",
+      "category": "performance",
+      "primaryKeyword": "Shopify section blocks rendering",
+      "angle": "Section vs block rendering inside Liquid: which is faster, which is more cacheable",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "theme-app-extensions-vs-script-tags"
+      ]
+    },
+    {
+      "day": 55,
+      "status": "pending",
+      "slug": "shopify-app-jwt-session-tokens",
+      "category": "security",
+      "primaryKeyword": "Shopify JWT session token",
+      "angle": "Session tokens in embedded apps: the JWT shape, the validation, the common bypasses",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 56,
+      "status": "pending",
+      "slug": "shopify-product-recommendations-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify product recommendations performance",
+      "angle": "Shopify's native recommendations API vs third-party recommendation apps: the latency comparison",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 57,
+      "status": "pending",
+      "slug": "shopify-customer-consent-banner",
+      "category": "security",
+      "primaryKeyword": "Shopify cookie consent",
+      "angle": "Cookie consent banners on Shopify: the apps that comply, the apps that pretend",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 58,
+      "status": "pending",
+      "slug": "shopify-cart-throughput-flash-sale",
+      "category": "performance",
+      "primaryKeyword": "Shopify flash sale performance",
+      "angle": "How Shopify storefronts handle flash-sale traffic and the bottlenecks that surface at peak",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 59,
+      "status": "pending",
+      "slug": "shopify-fulfillment-api-security",
+      "category": "security",
+      "primaryKeyword": "Shopify fulfillment API security",
+      "angle": "Fulfillment apps and the shipping data exposure surface most merchants overlook",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-customer-data-gdpr-compliance"
+      ]
+    },
+    {
+      "day": 60,
+      "status": "pending",
+      "slug": "shopify-image-srcset-sizes",
+      "category": "performance",
+      "primaryKeyword": "Shopify responsive images srcset",
+      "angle": "Responsive image srcset on Shopify storefronts. The bytes you save on mobile by getting this right",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 61,
+      "status": "pending",
+      "slug": "shopify-discount-code-security",
+      "category": "security",
+      "primaryKeyword": "Shopify discount code abuse",
+      "angle": "Bulk-issued discount codes get scraped within hours. Here is the defensive setup",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 62,
+      "status": "pending",
+      "slug": "shopify-mobile-input-delay",
+      "category": "performance",
+      "primaryKeyword": "Shopify mobile input delay",
+      "angle": "Why your Add to Cart button feels laggy on mobile and the long-task fix",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 63,
+      "status": "pending",
+      "slug": "shopify-app-encryption-at-rest",
+      "category": "security",
+      "primaryKeyword": "Shopify app data encryption at rest",
+      "angle": "How to verify that an app encrypts your store data at rest and the standards to ask about",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 64,
+      "status": "pending",
+      "slug": "shopify-search-index-performance",
+      "category": "performance",
+      "primaryKeyword": "Shopify search filter performance",
+      "angle": "Custom search and filter apps: the indexing strategies and the page-load impact ranked",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 65,
+      "status": "pending",
+      "slug": "shopify-customer-export-rights",
+      "category": "security",
+      "primaryKeyword": "Shopify customer data export",
+      "angle": "GDPR data-export requests on Shopify: how to fulfill them across every connected app",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 66,
+      "status": "pending",
+      "slug": "shopify-time-to-first-byte",
+      "category": "performance",
+      "primaryKeyword": "Shopify TTFB time to first byte",
+      "angle": "Time to First Byte on Shopify storefronts: what it usually is, what it should be, what slows it",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 67,
+      "status": "pending",
+      "slug": "shopify-affiliate-app-fraud",
+      "category": "security",
+      "primaryKeyword": "Shopify affiliate app fraud",
+      "angle": "Affiliate-tracking apps that inject hidden referrer codes and how to detect them",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 68,
+      "status": "pending",
+      "slug": "shopify-jit-app-block-render",
+      "category": "performance",
+      "primaryKeyword": "Shopify app block lazy render",
+      "angle": "Patterns for lazy-rendering app blocks below the fold without breaking interactivity",
+      "internalLinks": [
+        "theme-app-extensions-vs-script-tags",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 69,
+      "status": "pending",
+      "slug": "shopify-app-tos-data-clauses",
+      "category": "security",
+      "primaryKeyword": "Shopify app terms of service",
+      "angle": "The data-rights clauses to read in every Shopify app's Terms of Service before installing",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 70,
+      "status": "pending",
+      "slug": "shopify-script-tag-deprecation",
+      "category": "performance",
+      "primaryKeyword": "Shopify ScriptTag API deprecation",
+      "angle": "Shopify's plans for the ScriptTag API: timeline, migration paths, and the apps you should pre-emptively replace",
+      "internalLinks": [
+        "theme-app-extensions-vs-script-tags",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 71,
+      "status": "pending",
+      "slug": "shopify-recovery-email-spoofing",
+      "category": "security",
+      "primaryKeyword": "Shopify cart abandonment email security",
+      "angle": "Cart-abandonment apps that send from your domain: SPF, DKIM, DMARC walked end to end",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 72,
+      "status": "pending",
+      "slug": "shopify-product-json-prefetch",
+      "category": "performance",
+      "primaryKeyword": "Shopify product JSON prefetch",
+      "angle": "Using product.json prefetch on collection pages to make product navigation feel instant",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 73,
+      "status": "pending",
+      "slug": "shopify-multipass-security",
+      "category": "security",
+      "primaryKeyword": "Shopify Multipass security",
+      "angle": "Multipass single sign-on on Shopify Plus: the token construction, the rotation, the threat model",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 74,
+      "status": "pending",
+      "slug": "shopify-streaming-html-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify streaming HTML",
+      "angle": "Streamed Liquid responses and the early-flush pattern that improves perceived performance",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 75,
+      "status": "pending",
+      "slug": "shopify-app-3p-cookies",
+      "category": "security",
+      "primaryKeyword": "Shopify third party cookies apps",
+      "angle": "Apps still relying on third-party cookies in 2026. What works, what breaks, what to migrate",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 76,
+      "status": "pending",
+      "slug": "shopify-search-typeahead-speed",
+      "category": "performance",
+      "primaryKeyword": "Shopify search typeahead speed",
+      "angle": "Typeahead search latency: API choice, debouncing, and the perceived-speed wins",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 77,
+      "status": "pending",
+      "slug": "shopify-app-org-acquisition-risk",
+      "category": "security",
+      "primaryKeyword": "Shopify app ownership change risk",
+      "angle": "What happens to your data when a Shopify app gets acquired by another company",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "identify-malicious-shopify-apps"
+      ]
+    },
+    {
+      "day": 78,
+      "status": "pending",
+      "slug": "shopify-critical-css-inline",
+      "category": "performance",
+      "primaryKeyword": "Shopify critical CSS inline",
+      "angle": "Inlining critical CSS in Shopify themes: when it helps, when it hurts cache hit rate",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 79,
+      "status": "pending",
+      "slug": "shopify-app-staff-access-rotation",
+      "category": "security",
+      "primaryKeyword": "Shopify staff app access rotation",
+      "angle": "Rotating which staff accounts authorized which apps. A quarterly hygiene playbook",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 80,
+      "status": "pending",
+      "slug": "shopify-section-rendering-pjax",
+      "category": "performance",
+      "primaryKeyword": "Shopify partial page rendering",
+      "angle": "Partial page rendering on Shopify: PJAX, Turbo, and Section Rendering API head to head",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 81,
+      "status": "pending",
+      "slug": "shopify-app-billing-scams",
+      "category": "security",
+      "primaryKeyword": "Shopify app billing scam",
+      "angle": "Apps that under-bill on month one then escalate. How to catch the pattern before it hits your invoice",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 82,
+      "status": "pending",
+      "slug": "shopify-checkout-extensions-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify checkout extension performance",
+      "angle": "Checkout UI extensions and the performance budget you should not blow past",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 83,
+      "status": "pending",
+      "slug": "shopify-storefront-password-leak",
+      "category": "security",
+      "primaryKeyword": "Shopify storefront password leak",
+      "angle": "Password-protected storefronts and how staging URLs accidentally leak via referrer",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-customer-data-gdpr-compliance"
+      ]
+    },
+    {
+      "day": 84,
+      "status": "pending",
+      "slug": "shopify-edge-functions-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify edge function performance",
+      "angle": "Vercel, Cloudflare, and Netlify edge functions in front of Shopify: when it helps and when it hurts",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 85,
+      "status": "pending",
+      "slug": "shopify-app-incident-response",
+      "category": "security",
+      "primaryKeyword": "Shopify app incident response",
+      "angle": "When an app you depend on has a breach. The first 24 hours playbook for merchants",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "shopify-customer-data-gdpr-compliance"
+      ]
+    },
+    {
+      "day": 86,
+      "status": "pending",
+      "slug": "shopify-fonts-fallback-flash",
+      "category": "performance",
+      "primaryKeyword": "Shopify font fallback FOUT FOIT",
+      "angle": "Flash of Unstyled Text vs Flash of Invisible Text on Shopify: which to choose for CLS",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes"
+      ]
+    },
+    {
+      "day": 87,
+      "status": "pending",
+      "slug": "shopify-app-mfa-enforcement",
+      "category": "security",
+      "primaryKeyword": "Shopify app MFA enforcement",
+      "angle": "Forcing MFA inside the app vendor: the merchant questions to ask before granting scopes",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-pci-compliance-apps"
+      ]
+    },
+    {
+      "day": 88,
+      "status": "pending",
+      "slug": "shopify-currency-conversion-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify multi-currency performance",
+      "angle": "Multi-currency apps and the per-page weight they add. Native Shopify Markets vs third-party converters",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "lazy-load-shopify-review-widgets"
+      ]
+    },
+    {
+      "day": 89,
+      "status": "pending",
+      "slug": "shopify-app-shared-customer-token",
+      "category": "security",
+      "primaryKeyword": "Shopify app customer token sharing",
+      "angle": "When two apps share a customer token. The attack surface and the audit trail",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-customer-data-gdpr-compliance"
+      ]
+    },
+    {
+      "day": 90,
+      "status": "pending",
+      "slug": "shopify-cart-section-rerender",
+      "category": "performance",
+      "primaryKeyword": "Shopify cart section re-render",
+      "angle": "Re-rendering the cart icon and drawer without a full reload. The technique that does not block input",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 91,
+      "status": "pending",
+      "slug": "shopify-app-marketplace-redirect",
+      "category": "security",
+      "primaryKeyword": "Shopify app open redirect",
+      "angle": "Open redirect vulnerabilities in app OAuth flows and how to spot them",
+      "internalLinks": [
+        "shopify-webhook-security-hmac",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 92,
+      "status": "pending",
+      "slug": "shopify-collection-filter-perf",
+      "category": "performance",
+      "primaryKeyword": "Shopify collection filter performance",
+      "angle": "Faceted navigation on collection pages: the JS budget and the queries to avoid",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 93,
+      "status": "pending",
+      "slug": "shopify-pcd-level-3-future",
+      "category": "security",
+      "primaryKeyword": "Shopify Protected Customer Data Level 3",
+      "angle": "What we expect Protected Customer Data Level 3 to look like and how to prepare your app",
+      "internalLinks": [
+        "shopify-customer-data-gdpr-compliance",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 94,
+      "status": "pending",
+      "slug": "shopify-image-cdn-priority-hints",
+      "category": "performance",
+      "primaryKeyword": "Shopify image priority hints",
+      "angle": "fetchpriority hints on the LCP image: when Shopify's CDN respects them and when it does not",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 95,
+      "status": "pending",
+      "slug": "shopify-staff-phishing-prevention",
+      "category": "security",
+      "primaryKeyword": "Shopify staff phishing",
+      "angle": "Phishing campaigns targeting Shopify store owners. The recognition checklist for your team",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "identify-malicious-shopify-apps"
+      ]
+    },
+    {
+      "day": 96,
+      "status": "pending",
+      "slug": "shopify-streaming-product-listing",
+      "category": "performance",
+      "primaryKeyword": "Shopify streaming product listings",
+      "angle": "Streaming product listings via Server-Sent Events for slow connections",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 97,
+      "status": "pending",
+      "slug": "shopify-app-impersonation-attacks",
+      "category": "security",
+      "primaryKeyword": "Shopify app impersonation",
+      "angle": "Lookalike apps and brand impersonation in the Shopify App Store. How to verify the publisher",
+      "internalLinks": [
+        "identify-malicious-shopify-apps",
+        "audit-shopify-app-permissions"
+      ]
+    },
+    {
+      "day": 98,
+      "status": "pending",
+      "slug": "shopify-css-container-queries",
+      "category": "performance",
+      "primaryKeyword": "Shopify CSS container queries",
+      "angle": "CSS container queries on Shopify themes. The responsive pattern that does not need JS",
+      "internalLinks": [
+        "shopify-mobile-speed-7-fixes",
+        "shopify-core-web-vitals-2026-benchmarks"
+      ]
+    },
+    {
+      "day": 99,
+      "status": "pending",
+      "slug": "shopify-zero-trust-app-stack",
+      "category": "security",
+      "primaryKeyword": "Shopify zero trust app stack",
+      "angle": "Building a zero-trust Shopify app stack. The mental model and the practical permissions",
+      "internalLinks": [
+        "audit-shopify-app-permissions",
+        "shopify-customer-data-gdpr-compliance"
+      ]
+    },
+    {
+      "day": 100,
+      "status": "pending",
+      "slug": "shopify-perf-audit-yearly-review",
+      "category": "performance",
+      "primaryKeyword": "Shopify yearly performance review",
+      "angle": "Running a yearly Shopify performance and security audit. The 30-point review every merchant should do",
+      "internalLinks": [
+        "shopify-core-web-vitals-2026-benchmarks",
+        "shopify-mobile-speed-7-fixes",
+        "audit-shopify-app-permissions"
+      ]
+    }
   ]
 }
