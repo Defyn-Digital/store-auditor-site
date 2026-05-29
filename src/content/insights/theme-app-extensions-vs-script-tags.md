@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Shopify app installation methods"
   - "Shopify app blocks"
 category: performance
-publishedDate: 2026-05-27
+publishedDate: 2026-05-22
 readingTime: 7
 ---
 

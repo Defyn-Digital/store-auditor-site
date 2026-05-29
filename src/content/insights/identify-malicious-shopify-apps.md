@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Shopify app scam"
   - "Shopify app malware"
 category: security
-publishedDate: 2026-05-27
+publishedDate: 2026-05-17
 readingTime: 7
 ---
 

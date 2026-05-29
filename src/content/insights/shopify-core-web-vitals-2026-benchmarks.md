@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Shopify CLS"
   - "Google Core Web Vitals Shopify"
 category: performance
-publishedDate: 2026-05-27
+publishedDate: 2026-05-26
 readingTime: 8
 ---
 

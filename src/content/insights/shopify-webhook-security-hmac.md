@@ -8,7 +8,7 @@ secondaryKeywords:
   - "verify Shopify webhook"
   - "Shopify webhook spoofing"
 category: security
-publishedDate: 2026-05-27
+publishedDate: 2026-05-21
 readingTime: 7
 ---
 

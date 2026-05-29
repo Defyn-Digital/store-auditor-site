@@ -8,7 +8,7 @@ secondaryKeywords:
   - "revoke Shopify app permissions"
   - "Shopify app security"
 category: security
-publishedDate: 2026-05-27
+publishedDate: 2026-05-25
 readingTime: 7
 ---
 

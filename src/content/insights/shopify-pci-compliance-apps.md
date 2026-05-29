@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Shopify checkout security"
   - "PCI DSS Shopify"
 category: security
-publishedDate: 2026-05-27
+publishedDate: 2026-05-19
 readingTime: 8
 ---
 

@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Klaviyo onsite tracking"
   - "speed up Klaviyo Shopify"
 category: performance
-publishedDate: 2026-05-27
+publishedDate: 2026-05-20
 readingTime: 7
 ---
 

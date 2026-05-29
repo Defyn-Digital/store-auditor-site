@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Shopify privacy compliance"
   - "Shopify app data handling"
 category: security
-publishedDate: 2026-05-27
+publishedDate: 2026-05-23
 readingTime: 9
 ---
 

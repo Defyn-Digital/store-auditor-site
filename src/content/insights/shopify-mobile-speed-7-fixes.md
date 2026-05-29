@@ -8,7 +8,7 @@ secondaryKeywords:
   - "speed up Shopify mobile"
   - "Shopify mobile performance"
 category: performance
-publishedDate: 2026-05-27
+publishedDate: 2026-05-24
 readingTime: 9
 ---
 

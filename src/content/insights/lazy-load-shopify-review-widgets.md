@@ -8,7 +8,7 @@ secondaryKeywords:
   - "Loox lazy load"
   - "Shopify review app performance"
 category: performance
-publishedDate: 2026-05-27
+publishedDate: 2026-05-18
 readingTime: 6
 ---
 
