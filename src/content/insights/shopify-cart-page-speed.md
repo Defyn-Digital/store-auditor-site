@@ -9,7 +9,7 @@ secondaryKeywords:
   - "Shopify checkout funnel performance"
   - "reduce cart page JavaScript blocking"
 category: performance
-publishedDate: 2026-05-29
+publishedDate: 2026-05-30
 readingTime: 9
 ---
 

@@ -43,7 +43,16 @@ if (!API_KEY) {
 
 function todayDateStr() {
   if (process.env.OVERRIDE_DATE) return process.env.OVERRIDE_DATE;
-  return new Date().toISOString().slice(0, 10);
+  // Use Australia/Sydney local date so publishedDate matches the day the post
+  // actually publishes for Sydney readers. GitHub runners are UTC, and the
+  // 23:00 UTC cron crosses the date line into AEST/AEDT same-day.
+  // en-CA locale returns YYYY-MM-DD.
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Australia/Sydney",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 }
 
 function nowISO() {
