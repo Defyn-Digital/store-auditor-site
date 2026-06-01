@@ -63,7 +63,7 @@
     },
     {
       "day": 5,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-app-permissions-red-flags",
       "category": "security",
       "primaryKeyword": "Shopify app permission red flags",
@@ -71,7 +71,8 @@
       "internalLinks": [
         "audit-shopify-app-permissions",
         "identify-malicious-shopify-apps"
-      ]
+      ],
+      "publishedAt": "2026-06-01T00:14:45.720Z"
     },
     {
       "day": 6,
