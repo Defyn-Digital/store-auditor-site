@@ -10,7 +10,10 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
-  structuredData?: Record<string, unknown> | null;
+  structuredData?:
+    | Record<string, unknown>
+    | Record<string, unknown>[]
+    | null;
   bodyClass?: string;
 }
 
@@ -23,6 +26,55 @@ const {
   structuredData = null,
   bodyClass = "",
 } = Astro.props;
+
+// Global schema present on every page. Anchors the entity for AI search
+// engines and helps build knowledge-graph confidence in the brand.
+const ORG_SCHEMA: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://storeauditor.au/#organization",
+  name: "Store Auditor",
+  url: "https://storeauditor.au",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://storeauditor.au/apple-touch-icon.png",
+  },
+  description:
+    "Shopify performance audit app that attributes blocking time to specific named installed apps. Built by Defyn Digital.",
+  sameAs: [
+    "https://apps.shopify.com/store-auditor",
+    "https://github.com/Defyn-Digital/store-auditor-site",
+    "https://defyn.com.au",
+  ],
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Defyn Digital",
+    url: "https://defyn.com.au",
+  },
+};
+
+const SITE_SCHEMA: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://storeauditor.au/#website",
+  name: "Store Auditor",
+  alternateName: "storeauditor.au",
+  url: "https://storeauditor.au",
+  inLanguage: "en-AU",
+  publisher: { "@id": "https://storeauditor.au/#organization" },
+};
+
+const perPage: Record<string, unknown>[] = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const allStructuredData: Record<string, unknown>[] = [
+  ORG_SCHEMA,
+  SITE_SCHEMA,
+  ...perPage,
+];
 ---
 
 <!doctype html>
@@ -55,7 +107,7 @@ const {
       canonical={canonical}
       ogImage={ogImage}
       noindex={noindex}
-      structuredData={structuredData}
+      structuredData={allStructuredData}
     />
   </head>
   <body class:list={["grain", bodyClass]}>

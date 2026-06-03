@@ -41,6 +41,8 @@ const articleSchema = {
   dateModified: updatedISO,
   inLanguage: "en-AU",
   keywords: [data.primaryKeyword, ...(data.secondaryKeywords ?? [])].join(", "),
+  articleSection: data.category,
+  wordCount: post.body.split(/\s+/).filter(Boolean).length,
   author: {
     "@type": "Organization",
     name: "Defyn Digital",
@@ -48,6 +50,7 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
+    "@id": "https://storeauditor.au/#organization",
     name: "Store Auditor",
     url: "https://storeauditor.au",
     logo: {
@@ -55,6 +58,31 @@ const articleSchema = {
       url: "https://storeauditor.au/apple-touch-icon.png",
     },
   },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://storeauditor.au/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Insights",
+      item: "https://storeauditor.au/insights",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: data.title,
+      item: url,
+    },
+  ],
 };
 
 // Pull 3 related posts (same category, exclude self)
@@ -73,7 +101,7 @@ const related = allPosts
   title={`${data.title} | Store Auditor`}
   description={data.description}
   canonical={url}
-  structuredData={articleSchema}
+  structuredData={[articleSchema, breadcrumbSchema]}
 >
   <article class="post">
     <header class="post-header">

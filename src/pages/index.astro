@@ -84,7 +84,21 @@ const faqItems = [
 <BaseLayout
   title="Store Auditor: See Which Shopify Apps Are Slowing Your Store"
   description="Store Auditor scans your Shopify storefront with Google Lighthouse and shows which installed apps are slowing your store by name. Lighthouse-grade audits across mobile and desktop. Built for Shopify."
-  structuredData={structuredData}
+  structuredData={[
+    structuredData,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((q) => ({
+        "@type": "Question",
+        name: q.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: q.answer.replace(/<[^>]+>/g, ""),
+        },
+      })),
+    },
+  ]}
 >
   <!-- HERO -->
   <section class="hero">

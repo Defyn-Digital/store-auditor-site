@@ -9,7 +9,10 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
-  structuredData?: Record<string, unknown> | null;
+  structuredData?:
+    | Record<string, unknown>
+    | Record<string, unknown>[]
+    | null;
 }
 
 const {
@@ -24,6 +27,12 @@ const {
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "";
 const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
 const absoluteOg = ogImage.startsWith("http") ? ogImage : siteUrl + ogImage;
+
+const schemaBlocks: Record<string, unknown>[] = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
 ---
 
 <title>{title}</title>
@@ -47,11 +56,11 @@ const absoluteOg = ogImage.startsWith("http") ? ogImage : siteUrl + ogImage;
 <meta name="twitter:image" content={absoluteOg} />
 
 {
-  structuredData && (
+  schemaBlocks.map((block) => (
     <script
       is:inline
       type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
+      set:html={JSON.stringify(block)}
     />
-  )
+  ))
 }
