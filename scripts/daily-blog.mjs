@@ -34,7 +34,7 @@ const COMMIT_MSG_PATH = "/tmp/commit-msg.txt";
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-5";
-const MAX_RETRIES = 3;
+const MAX_RETRIES = 5;
 
 if (!API_KEY) {
   console.error("ERROR: ANTHROPIC_API_KEY env var is required.");
@@ -187,11 +187,11 @@ async function callAnthropic(entry, prevError) {
     "NON-NEGOTIABLE RULES:",
     "",
     "1. ZERO EM-DASHES (U+2014, the long dash) anywhere in title, description, secondaryKeywords, or markdownBody. Use period, comma, colon, or parentheses instead. ANY em-dash will reject the article.",
-    "2. Body length: 1100 to 1500 words.",
+    "2. Body length: 1100 to 1600 words. Count carefully. Aim for 1300.",
     "3. Voice: short sentences. Technical but plain. No marketing fluff. No hedging weasel words like \"potentially\", \"could possibly\", \"might perhaps\".",
     "4. Body structure:",
-    "   - One sentence intro. No preamble like \"In this article we will...\".",
-    "   - 4 to 6 H2 sections (## ...).",
+    "   - One sentence intro that directly answers what the article is about (the AI search engines quote this). No preamble like \"In this article we will...\".",
+    "   - EXACTLY 4 to 7 H2 sections (## ...). Not 8. Count them. The final \"Wrap-up\" or \"Conclusion\" H2 counts as one of those.",
     "   - 0 to 3 H3 subsections per H2 if useful.",
     "   - One short conclusion section (## Wrap-up or similar).",
     "5. REQUIRED internal links (must appear verbatim in body):",
@@ -318,18 +318,18 @@ function validateGenerated(g, entry) {
 
   const words = g.markdownBody.split(/\s+/).filter(Boolean).length;
   if (words < 1100) {
-    throw new Error(`Body too short: ${words} words (need 1100-1500)`);
+    throw new Error(`Body too short: ${words} words (need 1100-1600)`);
   }
-  if (words > 1500) {
-    throw new Error(`Body too long: ${words} words (need 1100-1500)`);
+  if (words > 1600) {
+    throw new Error(`Body too long: ${words} words (need 1100-1600)`);
   }
 
   const h2Count = (g.markdownBody.match(/^##\s+/gm) || []).length;
   if (h2Count < 4) {
-    throw new Error(`Too few H2 sections: ${h2Count} (need 4-6)`);
+    throw new Error(`Too few H2 sections: ${h2Count} (need 4-7)`);
   }
-  if (h2Count > 6) {
-    throw new Error(`Too many H2 sections: ${h2Count} (need 4-6)`);
+  if (h2Count > 7) {
+    throw new Error(`Too many H2 sections: ${h2Count} (need 4-7)`);
   }
 
   for (const slug of entry.internalLinks) {
