@@ -3,6 +3,50 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import CtaBlock from "~/components/CtaBlock.astro";
 import FAQ from "~/components/FAQ.astro";
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to run a Shopify performance audit with Store Auditor",
+  description:
+    "The four-layer process Store Auditor uses to scan a Shopify storefront, attribute every blocking script to the installed app that loaded it, and produce a ranked fix list.",
+  totalTime: "PT2M",
+  estimatedCost: {
+    "@type": "MonetaryAmount",
+    currency: "USD",
+    value: "0",
+  },
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Discover storefront pages",
+      text: "On install, Store Auditor reads your products, collections, and theme configuration via read-only Shopify API calls. It assembles a representative page set: homepage, top product, top collection, and cart, each scanned on both mobile and desktop.",
+      url: "https://storeauditor.au/how-it-works",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Run Google Lighthouse 13",
+      text: "Each page is scanned via Browserless using the official Lighthouse CLI, the same engine that powers PageSpeed Insights and Chrome DevTools. We extract performance score, LCP, TBT, render-blocking resources, third-party impact, and the full main-thread breakdown. Finishes in 60 to 120 seconds.",
+      url: "https://storeauditor.au/how-it-works",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Attribute scripts to named apps",
+      text: "Each blocking script is cross-referenced against a fingerprint database of Shopify apps using four signals: script host, Theme App Extension block name, global variable names, and content patterns. Each script is attributed to a specific named app like Klaviyo, Judge.me, or GA4.",
+      url: "https://storeauditor.au/how-it-works",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Rank by severity and suggest fixes",
+      text: "Each app's combined blocking time is ranked. Entries are tagged critical, high, medium, or low based on absolute and relative impact. A specific recommendation is generated per app: defer this script, move to Web Pixels, lazy-load below the fold, or replace with the native Shopify channel.",
+      url: "https://storeauditor.au/how-it-works",
+    },
+  ],
+};
+
 const faqItems = [
   {
     question: "Do you use synthetic Lighthouse or field data (CrUX)?",
@@ -35,6 +79,21 @@ const faqItems = [
 <BaseLayout
   title="How Store Auditor Works: Lighthouse-Based Shopify Performance Audit"
   description="Store Auditor runs real Google Lighthouse 13 scans across your storefront's homepage, product, collection, and cart pages on both mobile and desktop, then maps every blocking script to the specific Shopify app that loaded it."
+  structuredData={[
+    howToSchema,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((q) => ({
+        "@type": "Question",
+        name: q.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: q.answer.replace(/<[^>]+>/g, ""),
+        },
+      })),
+    },
+  ]}
 >
   <!-- HERO -->
   <section class="hiw-hero">

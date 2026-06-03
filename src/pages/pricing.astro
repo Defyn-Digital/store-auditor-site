@@ -96,11 +96,56 @@ const faqItems = [
       "Not yet. Monthly only while we're in the first 12 months of the App Store. Once we have a year of pricing telemetry we'll add annual plans with a discount.",
   },
 ];
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Store Auditor",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Shopify Performance Audit",
+  operatingSystem: "Shopify",
+  url: "https://storeauditor.au",
+  description:
+    "Store Auditor is a Shopify App Store app that runs real Google Lighthouse scans across your storefront and attributes every blocking script back to the specific named app that loaded it.",
+  publisher: {
+    "@id": "https://storeauditor.au/#organization",
+  },
+  offers: plans.map((plan) => ({
+    "@type": "Offer",
+    name: `${plan.name} plan`,
+    price: plan.price.replace(/[^0-9.]/g, ""),
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    description: plan.description,
+    url: APP_STORE_URL,
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: plan.price.replace(/[^0-9.]/g, ""),
+      priceCurrency: "USD",
+      billingIncrement: 1,
+      unitText: plan.period.includes("month") ? "MON" : "ANN",
+    },
+  })),
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((q) => ({
+    "@type": "Question",
+    name: q.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: q.answer.replace(/<[^>]+>/g, ""),
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title="Store Auditor Pricing for Shopify Performance Audits"
   description="Free plan available. Pro $29/month for unlimited audits across every page. Plus $99/month for multi-store dashboards, API access, and priority support. 14-day free trial on paid plans."
+  structuredData={[productSchema, faqPageSchema]}
 >
   <section class="pricing-hero">
     <div class="container container-narrow">
