@@ -4,7 +4,7 @@ const insights = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string().max(80),
-    description: z.string().max(170),
+    description: z.string().max(200),
     primaryKeyword: z.string(),
     secondaryKeywords: z.array(z.string()).optional(),
     category: z.enum(["performance", "security", "general"]),

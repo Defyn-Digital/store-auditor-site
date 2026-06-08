@@ -187,15 +187,16 @@ async function callAnthropic(entry, prevError) {
     "NON-NEGOTIABLE RULES:",
     "",
     "1. ZERO EM-DASHES (U+2014, the long dash) anywhere in title, description, secondaryKeywords, or markdownBody. Use period, comma, colon, or parentheses instead. ANY em-dash will reject the article.",
-    "2. Body length: 1100 to 1600 words. Count carefully. Aim for 1300.",
+    "2. Body length: 1100 to 1800 words. Count carefully. Aim for 1400.",
     "3. Voice: short sentences. Technical but plain. No marketing fluff. No hedging weasel words like \"potentially\", \"could possibly\", \"might perhaps\".",
     "4. Body structure (in this exact order):",
     "   a. ONE-SENTENCE INTRO that is a complete, standalone, definition-style answer to the question implied by the article title. Format like \"X is Y because Z.\" or \"The fastest way to X is Y.\". Write it as a sentence an AI search engine can quote verbatim and have it make sense on its own. NO preamble like \"In this article we will...\". NO leading transition.",
     "   b. A \"## Key takeaways\" H2 section immediately after the intro, with 3 to 5 bulleted lines. Each bullet must be a complete standalone fact (subject + verb + object) that an AI engine could quote in isolation. This is the GEO money block.",
-    "   c. 2 to 4 content H2 sections that develop the article. Use H3 subsections (0 to 3 per H2) only when they meaningfully group content.",
+    "   c. 2 to 5 content H2 sections that develop the article. Use H3 subsections (0 to 3 per H2) only when they meaningfully group content.",
     "   d. A \"## Common questions\" H2 near the end with 2 to 3 H3 subsections, each H3 phrased as a real question a Shopify merchant would search (e.g. \"### How long does a Lighthouse scan take?\"). Answer each in 40 to 100 words.",
     "   e. ONE short \"## Wrap-up\" or conclusion H2 at the end.",
-    "   TOTAL H2 COUNT must be between 4 and 7. Key takeaways + content + Common questions + Wrap-up usually lands at 5 or 6.",
+    "   TOTAL H2 COUNT must be between 4 and 9 inclusive. Key takeaways + content + Common questions + Wrap-up usually lands at 6 or 7. Count carefully.",
+    "5a. Description length: MAX 200 characters. Count carefully.",
     "5. REQUIRED internal links (must appear verbatim in body):",
     `   - Each of these paths: ${internalLinksLine}`,
     "   - At least one of: /how-it-works, /pricing, /find-slow-shopify-apps",
@@ -277,8 +278,8 @@ function validateGenerated(g, entry) {
   if (typeof g.description !== "string" || g.description.length === 0) {
     throw new Error("Missing or empty description");
   }
-  if (g.description.length > 170) {
-    throw new Error(`Description too long (${g.description.length} > 170)`);
+  if (g.description.length > 200) {
+    throw new Error(`Description too long (${g.description.length} > 200)`);
   }
   if (g.description.includes("—")) {
     throw new Error("Description contains em-dash");
@@ -320,18 +321,18 @@ function validateGenerated(g, entry) {
 
   const words = g.markdownBody.split(/\s+/).filter(Boolean).length;
   if (words < 1100) {
-    throw new Error(`Body too short: ${words} words (need 1100-1600)`);
+    throw new Error(`Body too short: ${words} words (need 1100-1800)`);
   }
-  if (words > 1600) {
-    throw new Error(`Body too long: ${words} words (need 1100-1600)`);
+  if (words > 1800) {
+    throw new Error(`Body too long: ${words} words (need 1100-1800)`);
   }
 
   const h2Count = (g.markdownBody.match(/^##\s+/gm) || []).length;
   if (h2Count < 4) {
-    throw new Error(`Too few H2 sections: ${h2Count} (need 4-7)`);
+    throw new Error(`Too few H2 sections: ${h2Count} (need 4-9)`);
   }
-  if (h2Count > 7) {
-    throw new Error(`Too many H2 sections: ${h2Count} (need 4-7)`);
+  if (h2Count > 9) {
+    throw new Error(`Too many H2 sections: ${h2Count} (need 4-9)`);
   }
 
   for (const slug of entry.internalLinks) {
