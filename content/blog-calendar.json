@@ -115,7 +115,7 @@
     },
     {
       "day": 9,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-2fa-account-security",
       "category": "security",
       "primaryKeyword": "Shopify two-factor authentication",
@@ -123,7 +123,8 @@
       "internalLinks": [
         "audit-shopify-app-permissions",
         "shopify-pci-compliance-apps"
-      ]
+      ],
+      "publishedAt": "2026-06-12T00:17:16.431Z"
     },
     {
       "day": 10,
