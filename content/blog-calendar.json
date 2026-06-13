@@ -128,7 +128,7 @@
     },
     {
       "day": 10,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-font-loading-performance",
       "category": "performance",
       "primaryKeyword": "Shopify font loading",
@@ -136,7 +136,8 @@
       "internalLinks": [
         "shopify-core-web-vitals-2026-benchmarks",
         "shopify-mobile-speed-7-fixes"
-      ]
+      ],
+      "publishedAt": "2026-06-13T23:58:17.134Z"
     },
     {
       "day": 11,
