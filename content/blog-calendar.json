@@ -141,7 +141,7 @@
     },
     {
       "day": 11,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-app-store-fake-reviews",
       "category": "security",
       "primaryKeyword": "Shopify App Store fake reviews",
@@ -149,7 +149,8 @@
       "internalLinks": [
         "identify-malicious-shopify-apps",
         "audit-shopify-app-permissions"
-      ]
+      ],
+      "publishedAt": "2026-06-16T00:24:08.740Z"
     },
     {
       "day": 12,
