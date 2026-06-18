@@ -154,7 +154,7 @@
     },
     {
       "day": 12,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-image-optimization-2026",
       "category": "performance",
       "primaryKeyword": "Shopify image optimization",
@@ -162,7 +162,8 @@
       "internalLinks": [
         "shopify-core-web-vitals-2026-benchmarks",
         "shopify-mobile-speed-7-fixes"
-      ]
+      ],
+      "publishedAt": "2026-06-18T00:07:46.128Z"
     },
     {
       "day": 13,
