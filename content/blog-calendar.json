@@ -167,7 +167,7 @@
     },
     {
       "day": 13,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-checkout-extensibility-security",
       "category": "security",
       "primaryKeyword": "Shopify checkout extensibility security",
@@ -175,7 +175,8 @@
       "internalLinks": [
         "shopify-pci-compliance-apps",
         "audit-shopify-app-permissions"
-      ]
+      ],
+      "publishedAt": "2026-06-20T00:01:11.572Z"
     },
     {
       "day": 14,
