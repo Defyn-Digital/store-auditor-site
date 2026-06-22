@@ -180,7 +180,7 @@
     },
     {
       "day": 14,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-render-blocking-resources",
       "category": "performance",
       "primaryKeyword": "Shopify render blocking resources",
@@ -188,7 +188,8 @@
       "internalLinks": [
         "shopify-mobile-speed-7-fixes",
         "theme-app-extensions-vs-script-tags"
-      ]
+      ],
+      "publishedAt": "2026-06-22T00:03:54.788Z"
     },
     {
       "day": 15,
