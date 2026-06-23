@@ -193,7 +193,7 @@
     },
     {
       "day": 15,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-data-leakage-app-uninstall",
       "category": "security",
       "primaryKeyword": "Shopify app data leakage",
@@ -201,7 +201,8 @@
       "internalLinks": [
         "shopify-customer-data-gdpr-compliance",
         "audit-shopify-app-permissions"
-      ]
+      ],
+      "publishedAt": "2026-06-23T23:50:29.975Z"
     },
     {
       "day": 16,
