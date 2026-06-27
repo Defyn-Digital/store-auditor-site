@@ -219,7 +219,7 @@
     },
     {
       "day": 17,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-staff-account-permissions",
       "category": "security",
       "primaryKeyword": "Shopify staff account permissions",
@@ -227,7 +227,8 @@
       "internalLinks": [
         "audit-shopify-app-permissions",
         "shopify-pci-compliance-apps"
-      ]
+      ],
+      "publishedAt": "2026-06-27T23:54:13.513Z"
     },
     {
       "day": 18,
