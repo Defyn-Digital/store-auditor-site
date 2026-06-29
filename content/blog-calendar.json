@@ -232,7 +232,7 @@
     },
     {
       "day": 18,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-inp-interaction-next-paint",
       "category": "performance",
       "primaryKeyword": "Shopify INP optimization",
@@ -240,7 +240,8 @@
       "internalLinks": [
         "shopify-core-web-vitals-2026-benchmarks",
         "shopify-mobile-speed-7-fixes"
-      ]
+      ],
+      "publishedAt": "2026-06-29T23:57:05.923Z"
     },
     {
       "day": 19,
