@@ -245,7 +245,7 @@
     },
     {
       "day": 19,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-app-supply-chain-security",
       "category": "security",
       "primaryKeyword": "Shopify app supply chain security",
@@ -253,7 +253,8 @@
       "internalLinks": [
         "identify-malicious-shopify-apps",
         "audit-shopify-app-permissions"
-      ]
+      ],
+      "publishedAt": "2026-07-02T00:04:21.131Z"
     },
     {
       "day": 20,
