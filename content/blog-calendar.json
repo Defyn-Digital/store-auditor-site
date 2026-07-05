@@ -271,7 +271,7 @@
     },
     {
       "day": 21,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-pixel-data-privacy",
       "category": "security",
       "primaryKeyword": "Shopify pixel privacy",
@@ -279,7 +279,8 @@
       "internalLinks": [
         "shopify-customer-data-gdpr-compliance",
         "klaviyo-vs-web-pixels-performance"
-      ]
+      ],
+      "publishedAt": "2026-07-05T23:57:59.360Z"
     },
     {
       "day": 22,
