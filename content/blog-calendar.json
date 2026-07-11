@@ -310,7 +310,7 @@
     },
     {
       "day": 24,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-cdn-edge-caching",
       "category": "performance",
       "primaryKeyword": "Shopify CDN caching",
@@ -318,7 +318,8 @@
       "internalLinks": [
         "shopify-mobile-speed-7-fixes",
         "theme-app-extensions-vs-script-tags"
-      ]
+      ],
+      "publishedAt": "2026-07-11T23:43:18.125Z"
     },
     {
       "day": 25,
