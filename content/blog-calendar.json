@@ -323,7 +323,7 @@
     },
     {
       "day": 25,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-bot-protection",
       "category": "security",
       "primaryKeyword": "Shopify bot protection",
@@ -331,7 +331,8 @@
       "internalLinks": [
         "identify-malicious-shopify-apps",
         "shopify-pci-compliance-apps"
-      ]
+      ],
+      "publishedAt": "2026-07-13T23:43:11.305Z"
     },
     {
       "day": 26,
