@@ -336,7 +336,7 @@
     },
     {
       "day": 26,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-search-performance-predictive",
       "category": "performance",
       "primaryKeyword": "Shopify predictive search performance",
@@ -344,7 +344,8 @@
       "internalLinks": [
         "shopify-mobile-speed-7-fixes",
         "lazy-load-shopify-review-widgets"
-      ]
+      ],
+      "publishedAt": "2026-07-15T23:51:07.673Z"
     },
     {
       "day": 27,
