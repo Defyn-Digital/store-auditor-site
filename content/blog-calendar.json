@@ -349,7 +349,7 @@
     },
     {
       "day": 27,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-saved-cart-security",
       "category": "security",
       "primaryKeyword": "Shopify saved cart security",
@@ -357,7 +357,8 @@
       "internalLinks": [
         "shopify-customer-data-gdpr-compliance",
         "audit-shopify-app-permissions"
-      ]
+      ],
+      "publishedAt": "2026-07-17T23:43:45.562Z"
     },
     {
       "day": 28,
