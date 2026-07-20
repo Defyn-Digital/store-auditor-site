@@ -362,7 +362,7 @@
     },
     {
       "day": 28,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-mobile-tap-targets",
       "category": "performance",
       "primaryKeyword": "Shopify mobile tap targets",
@@ -370,7 +370,8 @@
       "internalLinks": [
         "shopify-core-web-vitals-2026-benchmarks",
         "shopify-mobile-speed-7-fixes"
-      ]
+      ],
+      "publishedAt": "2026-07-20T02:34:32.512Z"
     },
     {
       "day": 29,
