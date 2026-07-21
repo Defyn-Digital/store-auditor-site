@@ -375,7 +375,7 @@
     },
     {
       "day": 29,
-      "status": "pending",
+      "status": "done",
       "slug": "shopify-app-data-residency",
       "category": "security",
       "primaryKeyword": "Shopify app data residency",
@@ -383,7 +383,8 @@
       "internalLinks": [
         "shopify-customer-data-gdpr-compliance",
         "shopify-pci-compliance-apps"
-      ]
+      ],
+      "publishedAt": "2026-07-21T23:48:42.734Z"
     },
     {
       "day": 30,
