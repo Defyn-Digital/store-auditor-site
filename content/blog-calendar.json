@@ -492,7 +492,8 @@
     },
     {
       "day": 38,
-      "status": "pending",
+      "status": "done",
+      "publishedAt": "2026-08-25T09:00:00+10:00",
       "slug": "shopify-css-bundle-size",
       "category": "performance",
       "primaryKeyword": "Shopify CSS bundle size",
@@ -504,7 +505,8 @@
     },
     {
       "day": 39,
-      "status": "pending",
+      "status": "done",
+      "publishedAt": "2026-08-25T09:00:00+10:00",
       "slug": "shopify-encrypted-customer-fields",
       "category": "security",
       "primaryKeyword": "Shopify encrypted customer fields",
@@ -516,7 +518,8 @@
     },
     {
       "day": 40,
-      "status": "pending",
+      "status": "done",
+      "publishedAt": "2026-09-01T07:05:00+10:00",
       "slug": "shopify-jit-loading-cart",
       "category": "performance",
       "primaryKeyword": "Shopify cart drawer performance",
