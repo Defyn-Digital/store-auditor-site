@@ -43,6 +43,6 @@ If you want to dig into the security model in more depth, we have written about 
 
 ## A note on where this came from
 
-Store Auditor was built by [Defyn Digital](https://defyn.com.au), a Sydney-based Shopify development agency. We built it because we kept running the same per-app performance profiling by hand for our agency clients, and there was no tool that mapped the cost back to specific named apps. So we made one. Now it is yours too.
+Store Auditor was built by [Defyn Digital](https://defyn.com.au), a Sydney-based Shopify development agency. We built it because we kept running the same per-app performance profiling by hand for our agency clients, and there was no tool that mapped the cost back to specific named apps. So we made one. Now it is yours too. If you are curious how it came together, from product strategy to the Lighthouse attribution engine, we wrote up [the Store Auditor build story](https://defyndigital.com.au/work/store-auditor/) as part of our [custom application development](https://defyndigital.com.au/services/custom-application-development/) work.
 
 [Install Store Auditor free on the Shopify App Store](https://apps.shopify.com/store-auditor) and run your first audit today.

@@ -143,7 +143,7 @@ Most stores doing this work see mobile LCP drop from 3.5-4 seconds to under 2 se
 
 ## When to call in help
 
-If your store has more than 20 installed apps, a custom theme, or unusual revenue concentration on a few collection pages, the diagnostic gets harder. That's where agency-level work matters. [Defyn Digital](https://defyn.com.au) is the Shopify development team that built Store Auditor, and we handle this kind of performance optimization for clients regularly. The audit tool came out of our internal client workflow.
+If your store has more than 20 installed apps, a custom theme, or unusual revenue concentration on a few collection pages, the diagnostic gets harder. That's where agency-level work matters. [Defyn Digital](https://defyn.com.au) is the Shopify development team that built Store Auditor, and we handle this kind of performance optimization for clients regularly. The audit tool came out of our internal client workflow, and if you would rather have the fixes done for you, our [Shopify development team](https://defyndigital.com.au/services/shopify-development/) can take it from audit to implementation.
 
 ## Related reading
 

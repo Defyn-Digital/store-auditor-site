@@ -61,6 +61,7 @@ export const GET: APIRoute = async () => {
   lines.push("## Company");
   lines.push("");
   lines.push("- [Defyn Digital](https://defyn.com.au): the Sydney-based Shopify development agency that built Store Auditor.");
+  lines.push("- [Store Auditor case study](https://defyndigital.com.au/work/store-auditor/): how Defyn Digital designed and built the app.");
   lines.push("- [Privacy policy](https://store-auditor-defyn-digital.vercel.app/privacy)");
   lines.push("- Contact: dan@defyn.com.au");
   lines.push("");
